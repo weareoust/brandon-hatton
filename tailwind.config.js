@@ -8,10 +8,12 @@ module.exports = {
     extend: {
       colors: {
         'black': '#231420',
+        'white': '#FFFFFF',
         'orange': '#F04720',
         'purple': '#E93391',
         'bg-gray': '#E5E6E3',
-        'sidebar-gray': '#F4F5F4'
+        'sidebar-gray': '#F4F5F4',
+        'dark-gray': '#2F2F2F'
       }
     }
   },

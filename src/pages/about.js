@@ -1,33 +1,23 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import CtaButton from "../components/cta-button"
+import PageNav from "../components/page-nav"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import burst from "../../content/assets/burst.svg"
-
-const Heading = tw.h1`font-heading text-5xl mt-0`
-const Body = tw.p`font-body text-lg tracking-wide`
-const NavCta = tw(Link)`px-4 py-2 font-body text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray`
-
-const Section = tw.section`border-black border-solid border-0 border-b-2 flex flex-col md:flex-row`
-const Col = tw.div`md:w-1/2 px-8 py-12`
-const TitleCol = tw(Col)`border-0 border-black border-solid border-b-2 md:border-b-0 md:border-r-2 px-0 mx-8 md:px-8 md:mx-0`
-const SnglCol = tw(Col)`md:w-full py-24 flex flex-col items-center text-center`
+import { Section, Col, TitleCol, SnglCol } from "../components/grid"
+import { Heading, Body } from "../components/type"
 
 const Hero = styled(Section)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8`}
   background: radial-gradient(circle at 70%, #F40B83 0%, #FA3305 15%, #E5E6E3 90%);
 `
 
-export default function Home(props) {
+export default function About(props) {
 
   return (
     <Layout expand>
-      <div css={tw`absolute inset-x-0 top-0 flex justify-between items-center bg-sidebar-gray border-solid border-black border-0 border-b-2 px-8 py-2`}>
-        <p css={tw`font-heading tracking-wide text-2xl uppercase my-0`}>Info</p>
-        <NavCta to="/">Contact</NavCta>
-      </div>
+      <PageNav title="Info" cta={{text: "Contact", url: "/"}}/>
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
           <Heading>Info</Heading>

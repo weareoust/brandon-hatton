@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import tw from 'tailwind.macro'
 import { css } from '@emotion/core'
 import TransitionLink from 'gatsby-plugin-transition-link'
-import { TweenLite } from 'gsap/all'
+import { TweenMax } from 'gsap'
 
 const NavItem = tw(TransitionLink)`
   font-heading px-8 py-2 uppercase block text-black
@@ -12,9 +12,9 @@ const NavItem = tw(TransitionLink)`
 
 const openDrawer = { 
   trigger: () => {
-    TweenLite.fromTo('#featureContent', 0.3, { opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-40px)' })
-    TweenLite.to('#sidebar', 0.5, { transform: "none" })
-    TweenLite.to('#nav', 0.3, { opacity: 0 })
+    TweenMax.fromTo('#featureContent', 0.3, { opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-40px)' })
+    TweenMax.to('#sidebar', 0.5, { transform: "none" })
+    TweenMax.to('#nav', 0.3, { opacity: 0 })
   },
   length: 0.5
 }
@@ -22,7 +22,7 @@ const openDrawer = {
 const fadeIn = { 
   delay: 0.5,
   trigger: () => {
-    TweenLite.fromTo('#content', 1, { opacity: 0 }, { opacity: 1 })
+    TweenMax.fromTo('#content', 1, { opacity: 0 }, { opacity: 1 })
   }
 }
 

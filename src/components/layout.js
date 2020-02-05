@@ -6,6 +6,7 @@ import { TweenLite } from 'gsap/all'
 import SEO from "../components/seo"
 import Drawer from "../components/drawer"
 import logo from "../../content/assets/logo.svg"
+import "../components/global.css"
 
 export default function Layout(props) {
   let expand = props.expand

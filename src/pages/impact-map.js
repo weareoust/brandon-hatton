@@ -6,6 +6,7 @@ import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
+import logo from "../../content/assets/impact-map-logo.svg"
 
 const Hero = styled(Section)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
@@ -24,7 +25,7 @@ export default function ImpactMap(props) {
 
   return (
     <Layout expand>
-      <PageNav title="Impact Map" cta={{text: "Download", url: "/impact-map#download"}}/>
+      <PageNav title="Impact Map" logo={logo} cta={{text: "Download", url: "/impact-map#download"}}/>
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>Ensure that your giving reflects your values</Heading>

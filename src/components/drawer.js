@@ -44,7 +44,7 @@ export default function Drawer(props) {
   const nav = useCallback(node => {
     calcOffset(node)
     // window.addEventListener('resize', () => {calcOffset(node)})
-  }, [])
+  }, [calcOffset])
 
   return (
     <aside id="sidebar" css={css`

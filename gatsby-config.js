@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Concious Wealth Mindset`,
+    author: `Brandon Hatton`,
+    description: `We can change for the better with a concious wealth mindset`,
+    siteUrl: `https://brandonhatton.com/`,
     social: {
-      twitter: `kylemathews`,
-    },
+      twitter: ""
+    }
   },
   plugins: [
     'gatsby-plugin-emotion',
@@ -63,9 +63,9 @@ module.exports = {
         short_name: `Brandon Hatton`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#F04720`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

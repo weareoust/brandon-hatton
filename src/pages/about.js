@@ -21,7 +21,7 @@ export default function About(props) {
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
           <Heading>Info</Heading>
-          <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body>
+          <Body css={tw`md:max-w-lg`}>Cultivating Healing. Designing Impact.</Body>
         </div>
         <img src={burst} alt="Brandon Hatton Logo"/>
       </Hero>
@@ -35,7 +35,7 @@ export default function About(props) {
       </Section>
       <Section css={tw`bg-white`}>
         <SnglCol>
-          <Heading as="h2">Ready for conscious wealth management?</Heading>
+          <Heading as="h2">Want to learn more about conscious wealth?</Heading>
           <CtaButton to="/">Contact</CtaButton>
         </SnglCol>
       </Section>

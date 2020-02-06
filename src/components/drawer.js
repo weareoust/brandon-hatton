@@ -44,7 +44,7 @@ export default function Drawer(props) {
   const nav = useCallback(node => {
     calcOffset(node)
     // window.addEventListener('resize', () => {calcOffset(node)})
-  }, [calcOffset])
+  },[])
 
   return (
     <aside id="sidebar" css={css`
@@ -61,7 +61,7 @@ export default function Drawer(props) {
         display: ${expand ? 'none' : 'block'};
       `}>
         <ul css={tw`list-none m-0`}>
-          <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Story</NavItem></li>
+          <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Info</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/impact-map" exit={openDrawer} entry={fadeIn}>Impact Map</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
         </ul>

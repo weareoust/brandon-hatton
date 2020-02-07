@@ -43,7 +43,7 @@ export default function Drawer(props) {
   }
   const nav = useCallback(node => {
     calcOffset(node)
-    // window.addEventListener('resize', () => {calcOffset(node)})
+    window.addEventListener('resize', () => {calcOffset(node)})
   },[])
 
   return (
@@ -66,7 +66,10 @@ export default function Drawer(props) {
           <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
         </ul>
       </nav>
-      <div id="content" css={tw`overflow-y-scroll h-screen`}>{props.children}</div>
+      <div id="content" css={css`
+        ${tw`overflow-y-scroll h-screen`}
+        -webkit-overflow-scrolling: touch;
+      `}>{props.children}</div>
     </aside>
   )
 }

@@ -14,7 +14,7 @@ function Title(props) {
 
 export default function PageNav(props) {
   return (
-    <div css={tw`absolute inset-x-0 top-0 flex justify-between items-center bg-sidebar-gray border-solid border-black border-0 border-b-2 px-8 py-2`}>
+    <div css={tw`absolute inset-x-0 z-10 top-0 flex justify-between items-center bg-sidebar-gray border-solid border-black border-0 border-b-2 px-8 py-2`}>
       <Title title={props.title} logo={props.logo}/>
       <NavCta to={props.cta.url}>{props.cta.text}</NavCta>
     </div>

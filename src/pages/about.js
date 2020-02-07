@@ -20,8 +20,8 @@ export default function About(props) {
       <PageNav title="Info" cta={{text: "Contact", url: "/"}}/>
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
-          <Heading>Info</Heading>
-          <Body css={tw`md:max-w-lg`}>Cultivating Healing. Designing Impact.</Body>
+          <Heading>Cultivating Healing.<br/>Designing Impact.</Heading>
+          {/* <Body css={tw`md:max-w-lg`}>Cultivating Healing. Designing Impact.</Body> */}
         </div>
         <img src={burst} alt="Brandon Hatton Logo"/>
       </Hero>

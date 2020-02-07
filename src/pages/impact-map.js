@@ -5,7 +5,7 @@ import DownloadForm from "../components/download-form"
 import PageNav from "../components/page-nav"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
-import { Section, Col, TitleCol } from "../components/grid"
+import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
 import logo from "../../content/assets/impact-map-logo.svg"
 import BackgroundImage from 'gatsby-background-image'
@@ -53,17 +53,14 @@ export default function ImpactMap(props) {
       <PageNav title="Impact Map" logo={logo} cta={{text: "Download", url: "/impact-map#download"}}/>
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
-          <Heading css={tw`max-w-2xl`}>Ensure that your giving reflects your values</Heading>
-          <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body>
+          <Heading css={tw`max-w-2xl`}>Design your impact.<br/>Align your giving.</Heading>
+          {/* <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body> */}
         </div>
       </Hero>
       <Section css={tw`bg-bg-gray`}>
-        <TitleCol css={tw`md:bg-white`}>
+        <SnglCol css={tw`md:bg-white`}>
           <Heading as="h2">A New Way to Track Your Impact</Heading>
-        </TitleCol>
-        <Col css={tw`bg-bg-gray`}>
-          <Body>Fames imperdiet in faucibus eu. Consectetur ut donec ut cursus suspendisse placerat. Massa cursus quis mollis sociis. Euismod tortor consectetur maecenas in habitasse. Elementum quisque ut consectetur egestas interdum at dictum. Placerat amet, lacus bibendum ut tempor, morbi est nulla. Metus, lacus, aliquet a risus faucibus diam. Ornare nibh ipsum elementum faucibus nullam sagittis. Eget tempus curabitur ultrices ipsum. Mi habitant nunc, facilisis vitae sed sed tellus. Non eu, pellentesque diam egestas. Maecenas gravida amet proin fermentum commodo ac, eget risus. Turpis sit elementum risus ut nibh mauris, cursus.</Body>
-        </Col>
+        </SnglCol>
       </Section>
       <Section css={tw`bg-sidebar-gray`}>
         <TitleCol css={tw`md:bg-bg-gray`}>
@@ -71,10 +68,9 @@ export default function ImpactMap(props) {
         </TitleCol>
         <Col css={tw`flex items-center justify-center overflow-hidden`}>
           <List>
-            <Step>State your intentions</Step>
             <Step>State Values and Intended Impact</Step>
             <Step>Record your Investments for Social Change</Step>
-            <Step>Monitor Your Impact</Step>
+            <Step>Track Your Impact</Step>
           </List>
         </Col>
       </Section>

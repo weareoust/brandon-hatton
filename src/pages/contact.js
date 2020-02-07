@@ -21,7 +21,7 @@ export default function Contact(props) {
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>Let’s co-design a finacial path that matches your purpose</Heading>
-          <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body>
+          {/* <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body> */}
         </div>
       </Hero>
       <Section id="form">

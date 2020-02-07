@@ -6,8 +6,20 @@ import arrow from "../../content/assets/arrow.svg"
 
 const Cta = styled(Link)`
   ${tw`shadow-none font-heading uppercase text-black tracking-wide`}
-  font-size: 28px;
+  font-size: 18px;
   position: relative;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+
+  img {
+    height: 14px;
+
+    @media (min-width: 768px) {
+      height: 28px;
+    }
+  }
 
   div {
     transition: 0.3s transform ease;
@@ -19,7 +31,7 @@ const Cta = styled(Link)`
 `
 
 const Bg = styled.div`
-  ${tw`bg-black absolute inset-x-0 bottom-0 h-1`}
+  ${tw`bg-black absolute inset-x-0 bottom-0 h-px md:h-1`}
   transform-origin: center bottom;
   mix-blend-mode: difference;
   background-color: white;

@@ -75,7 +75,7 @@ export default function ImpactMap(props) {
         </Col>
       </Section>
       <Section id="download">
-        <TitleCol css={tw`md:bg-white border-b-0`}>
+        <TitleCol css={tw`md:bg-white border-b-0 hidden md:block`}>
           <Heading as="h2">Ready to get started?</Heading>
         </TitleCol>
         <Col css={tw`bg-black text-white`}>

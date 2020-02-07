@@ -67,7 +67,8 @@ export default function Drawer(props) {
         </ul>
       </nav>
       <div id="content" css={css`
-        ${tw`overflow-y-scroll h-screen`}
+        ${tw`overflow-y-scroll md:h-screen`}
+        height: 90vh;
         -webkit-overflow-scrolling: touch;
       `}>{props.children}</div>
     </aside>

@@ -1,6 +1,6 @@
 import tw from "tailwind.macro"
 
-const Heading = tw.h1`font-heading text-5xl mt-0`
+const Heading = tw.h1`font-heading text-2xl md:text-5xl mt-0`
 const Body = tw.p`font-body text-lg tracking-wide`
 const Label = tw.label`
   font-body mb-2

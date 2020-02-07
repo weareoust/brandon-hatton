@@ -25,7 +25,7 @@ export default function Contact(props) {
         </div>
       </Hero>
       <Section id="form">
-        <TitleCol css={tw`md:bg-white border-b-0`}>
+        <TitleCol css={tw`md:bg-white border-b-0 hidden md:block`}>
           <Heading as="h2">Let's Talk</Heading>
         </TitleCol>
         <Col css={tw`bg-black text-white`}>

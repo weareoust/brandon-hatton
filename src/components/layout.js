@@ -47,7 +47,7 @@ export default function Layout(props) {
         <div id="featureContent" css={css`
           display: ${expand ? 'none' : 'block'};
         `}>
-          <img src={logo} alt=""/>
+          <img css={tw`max-w-full`} src={logo} alt=""/>
           <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>We can change for the better with a concious wealth mindset.</h1>
         </div>
       </TransitionLink>

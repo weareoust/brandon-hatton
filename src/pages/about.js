@@ -9,7 +9,7 @@ import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
 
 const Hero = styled(Section)`
-  ${tw`pt-24 flex flex-col md:flex-row justify-between px-8`}
+  ${tw`pt-24 flex flex-col md:flex-row justify-between px-4 md:px-8 pb-4`}
   background: radial-gradient(circle at 70%, #F40B83 0%, #FA3305 15%, #E5E6E3 90%);
 `
 
@@ -23,7 +23,7 @@ export default function About(props) {
           <Heading>Cultivating Healing.<br/>Designing Impact.</Heading>
           {/* <Body css={tw`md:max-w-lg`}>Cultivating Healing. Designing Impact.</Body> */}
         </div>
-        <img src={burst} alt="Brandon Hatton Logo"/>
+        <img css={tw`w-1/2 md:w-auto self-end`} src={burst} alt="Brandon Hatton Logo"/>
       </Hero>
       <Section>
         <TitleCol>

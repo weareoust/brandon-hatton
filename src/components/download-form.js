@@ -43,7 +43,7 @@ export default function DownloadForm(props) {
     } else {
       return (
         <div css={tw`flex flex-col items-center`}>
-          <Heading css={tw`text-center mb-10`}>Download the Philanthropy Tracker</Heading>
+          <Heading css={tw`text-center mb-10`}>Download the Impact Map</Heading>
           <form 
             name="subscribeForm" 
             method="post"

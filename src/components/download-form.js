@@ -45,17 +45,16 @@ export default function DownloadForm(props) {
         <div css={tw`flex flex-col items-center`}>
           <Heading css={tw`text-center mb-10`}>Download the Impact Map</Heading>
           <form 
-            name="subscribeForm" 
+            name="downloadForm" 
             method="post"
             action="/success"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
             id="subscribe-form"
             css={tw`flex flex-col w-full max-w-sm`}
           >
-            <input type="hidden" name="form-name" value="nameForm" />
+            <input type="hidden" name="downloadForm" value="downloadForm" />
             <p hidden>
               <label>
                 Don’t fill this out: <input name="bot-field" />

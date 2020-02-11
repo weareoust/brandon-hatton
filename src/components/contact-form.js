@@ -50,12 +50,11 @@ export default function ContactForm(props) {
             action="/success"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
             id="contact-form"
             css={tw`flex flex-col w-full max-w-sm`}
           >
-            <input type="hidden" name="form-name" value="nameForm" />
+            <input type="hidden" name="contactForm" value="contactForm" />
             <p hidden>
               <label>
                 Don’t fill this out: <input name="bot-field" />

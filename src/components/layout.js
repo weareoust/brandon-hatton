@@ -48,7 +48,7 @@ export default function Layout(props) {
           display: ${expand ? 'none' : 'block'};
         `}>
           <img css={tw`max-w-full`} src={logo} alt=""/>
-          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>We can change for the better with a concious wealth mindset.</h1>
+          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>We can change for the better with a conscious wealth mindset.</h1>
         </div>
       </TransitionLink>
       <Drawer expand={expand} offset={setDrawerOffset}>{props.children}</Drawer>

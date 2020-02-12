@@ -20,7 +20,7 @@ export default function Contact(props) {
       <PageNav title="Contact" cta={{text: "Contact", url: "/contact#form"}}/>
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
-          <Heading css={tw`max-w-2xl`}>Let’s co-design a finacial path that matches your purpose</Heading>
+          <Heading css={tw`max-w-2xl`}>Let’s co-design a financial path that matches your purpose</Heading>
           {/* <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body> */}
         </div>
       </Hero>

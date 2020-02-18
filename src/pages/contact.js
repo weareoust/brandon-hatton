@@ -6,7 +6,7 @@ import ContactForm from "../components/contact-form"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol } from "../components/grid"
-import { Heading, Body } from "../components/type"
+import { Heading } from "../components/type"
 import BackgroundImage from 'gatsby-background-image'
 
 const Hero = styled(BackgroundImage)`

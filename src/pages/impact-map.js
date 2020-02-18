@@ -6,7 +6,7 @@ import PageNav from "../components/page-nav"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol, SnglCol } from "../components/grid"
-import { Heading, Body } from "../components/type"
+import { Heading } from "../components/type"
 import logo from "../../content/assets/impact-map-logo.svg"
 import BackgroundImage from 'gatsby-background-image'
 

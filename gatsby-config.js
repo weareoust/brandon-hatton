@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Conscious Wealth Mindset`,
+    title: `Conscious Wealth`,
     author: `Brandon Hatton`,
     description: `We can change for the better with a concious wealth mindset`,
     siteUrl: `https://brandonhatton.com/`,

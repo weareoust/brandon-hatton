@@ -21,7 +21,7 @@ function Alert(props) {
       .fromTo(alert.current, 1, {transform: "translateX(100px)", opacity: 0}, {delay: 5, transform: "translateX(0)", opacity: 1})
       .to(alert.current, 1, {delay: 3, transform: "translateX(100px)", opacity: 0})
     }
-  }, [show])
+  }, [show, timeline])
 
   if (show) {
     return (
@@ -92,7 +92,7 @@ export default function Layout(props) {
           display: ${expand ? 'none' : 'block'};
         `}>
           <img css={tw`max-w-full`} src={logo} alt=""/>
-          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>We can change for the better with a conscious wealth mindset.</h1>
+          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>Uncovering your soul with Conscious Wealth.</h1>
         </div>
       </TransitionLink>
       <Drawer expand={expand} offset={setDrawerOffset}>{props.children}</Drawer>

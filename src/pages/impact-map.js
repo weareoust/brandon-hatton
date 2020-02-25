@@ -61,7 +61,7 @@ export default function ImpactMap(props) {
       <Section css={tw`bg-bg-gray`}>
         <SnglCol css={tw`md:bg-white`}>
           <Heading as="h2" css={tw`mb-8`}>A New Way to Track Your Impact</Heading>
-          <BasicCta href="https://www.loom.com/share/2b17c3ade85b43cdb69162af2812f5f9" target="_blank">Learn More</BasicCta>
+          <BasicCta href="https://www.loom.com/share/2b17c3ade85b43cdb69162af2812f5f9" target="_blank">See how it works</BasicCta>
         </SnglCol>
       </Section>
       <Section css={tw`bg-sidebar-gray`}>

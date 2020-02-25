@@ -92,7 +92,7 @@ export default function Layout(props) {
           display: ${expand ? 'none' : 'block'};
         `}>
           <img css={tw`max-w-full`} src={logo} alt=""/>
-          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>Uncovering the soul with Conscious Wealth.</h1>
+          <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>Uncovering the Soul with Conscious Wealth.</h1>
         </div>
       </TransitionLink>
       <Drawer expand={expand} offset={setDrawerOffset}>{props.children}</Drawer>

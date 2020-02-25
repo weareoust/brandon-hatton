@@ -5,7 +5,7 @@ import styled from "@emotion/styled"
 import arrow from "../../content/assets/arrow.svg"
 
 const Cta = styled(Link)`
-  ${tw`shadow-none font-heading uppercase text-black tracking-wide`}
+  ${tw`shadow-none font-heading uppercase text-black tracking-wide flex items-center`}
   font-size: 18px;
   position: relative;
 

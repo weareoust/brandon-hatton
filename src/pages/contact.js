@@ -6,7 +6,7 @@ import ContactForm from "../components/contact-form"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol } from "../components/grid"
-import { Heading } from "../components/type"
+import { Heading, Body } from "../components/type"
 import BackgroundImage from 'gatsby-background-image'
 
 const Hero = styled(BackgroundImage)`
@@ -22,7 +22,7 @@ export default function Contact(props) {
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>Let’s co-design a financial path that matches your purpose</Heading>
-          {/* <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body> */}
+          <Body as="a" href="https://www.raymondjames.com/thehattongroup/" target="_blank" css={tw`inline md:max-w-lg mb-8 underline`}>Invest with Me</Body>
         </div>
       </Hero>
       <Section id="form">

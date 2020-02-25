@@ -3,6 +3,7 @@ import {graphql} from "gatsby"
 import Layout from "../components/layout"
 import DownloadForm from "../components/download-form"
 import PageNav from "../components/page-nav"
+import CtaButton from "../components/cta-button"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol, SnglCol } from "../components/grid"
@@ -46,6 +47,8 @@ const Step = styled.li`
   }
 `
 
+const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray`
+
 export default function ImpactMap(props) {
 
   return (
@@ -54,12 +57,12 @@ export default function ImpactMap(props) {
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>Design your impact.<br/>Align your giving.</Heading>
-          {/* <Body css={tw`md:max-w-lg`}>Sit lacus leo mauris eu pharetra, vestibulum erat natoque auctor. Rhoncus nulla nisl, amet, turpis.</Body> */}
         </div>
       </Hero>
       <Section css={tw`bg-bg-gray`}>
         <SnglCol css={tw`md:bg-white`}>
-          <Heading as="h2">A New Way to Track Your Impact</Heading>
+          <Heading as="h2" css={tw`mb-8`}>A New Way to Track Your Impact</Heading>
+          <BasicCta href="https://www.loom.com/share/2b17c3ade85b43cdb69162af2812f5f9" target="_blank">Learn More</BasicCta>
         </SnglCol>
       </Section>
       <Section css={tw`bg-sidebar-gray`}>

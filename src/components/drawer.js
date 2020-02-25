@@ -32,7 +32,7 @@ export default function Drawer(props) {
   const calcOffset = node => {
     let calc
     if (node !== null && window.innerWidth < 768) {
-      calc = `translateY(calc(90vh - ${node.getBoundingClientRect().height}px))`
+      calc = `translateY(calc(93vh - ${node.getBoundingClientRect().height}px))`
       setnavOffset(calc)
       props.offset(calc)
     } else if (node !== null && window.innerWidth >= 768) {
@@ -49,7 +49,7 @@ export default function Drawer(props) {
   return (
     <aside id="sidebar" css={css`
       ${tw`bg-sidebar-gray absolute bottom-0 right-0 h-screen w-screen border-0 border-t-2 md:border-t-0 md:border-l-2 border-solid border-black`}
-      max-height: 90vh;
+      max-height: 93vh;
       transform: ${expand ? '0px' : navOffset}};
 
       @media (min-width: 768px) {
@@ -57,6 +57,19 @@ export default function Drawer(props) {
         max-width: 90vw;
       }
     `}>
+      <div css={css`
+        display: ${expand ? 'block' : 'none'};
+        height  7vh;
+        width: 100vw;
+        pointer-events: none;
+        ${tw`fixed top-0 left-0 flex items-center justify-center`}
+      `}>
+        <p css={css`
+          display: ${expand ? 'block' : 'none'};
+          color: #cecaca;
+          ${tw`uppercase font-body tracking-wide`}
+        `}>Close</p>
+      </div>
       <nav ref={nav} id="nav" css={css`
         display: ${expand ? 'none' : 'block'};
       `}>
@@ -68,7 +81,7 @@ export default function Drawer(props) {
       </nav>
       <div id="content" css={css`
         ${tw`overflow-y-scroll md:h-screen`}
-        height: 90vh;
+        height: 93vh;
         -webkit-overflow-scrolling: touch;
       `}>{props.children}</div>
     </aside>

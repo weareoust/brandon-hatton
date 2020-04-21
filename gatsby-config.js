@@ -9,8 +9,12 @@ module.exports = {
     }
   },
   plugins: [
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-theme-tailwindcss`,
+      options: {
+        postCssPlugins: [require("autoprefixer")],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

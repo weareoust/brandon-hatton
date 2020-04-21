@@ -77,6 +77,7 @@ export default function Drawer(props) {
           <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Info</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/impact-map" exit={openDrawer} entry={fadeIn}>Impact Map</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
+          <li css={tw`mb-0`}><NavItem to="/blog" exit={openDrawer} entry={fadeIn}>Blog</NavItem></li>
         </ul>
       </nav>
       <div id="content" css={css`

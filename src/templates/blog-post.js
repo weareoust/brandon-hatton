@@ -1,10 +1,18 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import styled from '@emotion/styled'
+import tw from 'tailwind.macro'
+import { Section, SnglCol } from "../components/grid"
+import { Heading, Body } from "../components/type"
+import PageNav from "../components/page-nav"
+
+const Wrapper = styled.div`
+  p {
+    ${tw`mb-8`}
+  }
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -13,43 +21,28 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} expand>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        <PageNav title={`Blog / ${post.frontmatter.title}`} cta={{text: "Back", url: "/blog"}}/>
         <article>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
+          <Section className="bg-bg-gray">
+            <SnglCol>
+              <Heading>{post.frontmatter.title}</Heading>
+              <Body>{post.frontmatter.date}</Body>
+            </SnglCol>
+          </Section>
+          <Section>
+            <Wrapper dangerouslySetInnerHTML={{ __html: post.html }} className="font-body px-8 md:px-24 py-24" />
+          </Section>
+          <hr/>
           <footer>
-            <Bio />
           </footer>
         </article>
 
-        <nav>
+        <nav className="p-12 uppercase bg-bg-gray">
           <ul
             style={{
               display: `flex`,
@@ -61,14 +54,14 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link to={'/blog' + previous.fields.slug} rel="prev" className="font-body">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link to={'/blog' + next.fields.slug} rel="next" className="font-body">
                   {next.frontmatter.title} →
                 </Link>
               )}

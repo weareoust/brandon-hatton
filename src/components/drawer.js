@@ -28,7 +28,7 @@ const fadeIn = {
 
 export default function Drawer(props) {
   let expand = props.expand
-  const [navOffset, setnavOffset] = useState(0)
+  const [navOffset, setnavOffset] = useState('translateX(calc(100%))')
   const calcOffset = node => {
     let calc
     if (node !== null && window.innerWidth < 768) {
@@ -48,7 +48,7 @@ export default function Drawer(props) {
 
   return (
     <aside id="sidebar" css={css`
-      ${tw`bg-sidebar-gray absolute bottom-0 right-0 h-screen w-screen border-0 border-t-2 md:border-t-0 md:border-l-2 border-solid border-black`}
+      ${tw`bg-sidebar-gray absolute bottom-0 right-0 md:top-0 h-screen w-screen border-0 border-t-2 md:border-t-0 md:border-l-2 border-solid border-black`}
       max-height: 93vh;
       transform: ${expand ? '0px' : navOffset}};
 
@@ -77,7 +77,7 @@ export default function Drawer(props) {
           <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Info</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/impact-map" exit={openDrawer} entry={fadeIn}>Impact Map</NavItem></li>
           <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
-          <li css={tw`mb-0`}><NavItem to="/blog" exit={openDrawer} entry={fadeIn}>Blog</NavItem></li>
+          <li css={tw`mb-0`}><NavItem to="/blog" exit={openDrawer} entry={fadeIn}>BEING ENOUGH: A BLOG</NavItem></li>
         </ul>
       </nav>
       <div id="content" css={css`

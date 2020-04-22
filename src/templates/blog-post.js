@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <PageNav title={`Blog / ${post.frontmatter.title}`} cta={{text: "Back", url: "/blog"}}/>
+        <PageNav title={`BEING ENOUGH: ${post.frontmatter.title}`} cta={{text: "Back", url: "/blog"}}/>
         <article>
           <Section className="bg-bg-gray">
             <SnglCol>

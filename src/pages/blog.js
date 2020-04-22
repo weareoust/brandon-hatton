@@ -50,7 +50,7 @@ export default function ImpactMap(props) {
 
   return (
     <Layout expand>
-      <PageNav title="Blog" cta={{text: "Contact", url: "/contact"}}/>
+      <PageNav title="BEING ENOUGH: A BLOG" cta={{text: "Contact", url: "/contact"}}/>
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>A written and spoken<br/>series on Being Enough</Heading>

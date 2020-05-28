@@ -83,6 +83,7 @@ export default function Drawer(props) {
           <a 
             href="https://www.linkedin.com/in/brandonthatton/"
             target="_blank"
+            rel="noopener noreferrer"
             css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
           >linkedin</a>
         </div>

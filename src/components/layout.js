@@ -1,53 +1,16 @@
-import React, { useState, useEffect, useRef } from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
 import tw from 'tailwind.macro'
 import { css } from '@emotion/core'
 import TransitionLink from 'gatsby-plugin-transition-link'
-import { TweenMax, TimelineMax } from 'gsap/all'
+import { TweenMax } from 'gsap/all'
 import SEO from "../components/seo"
 import Drawer from "../components/drawer"
 import logo from "../../content/assets/logo.svg"
 import "../components/global.css"
-import { Body } from "./type"
-
-function Alert(props) {
-  const { show } = props
-  const alert = useRef(null);
-  const [timeline, setTimeline] = useState(new TimelineMax());
-
-  useEffect(() => {
-    if (show) {
-      timeline
-      .fromTo(alert.current, 1, {transform: "translateX(100px)", opacity: 0}, {delay: 5, transform: "translateX(0)", opacity: 1})
-      .to(alert.current, 1, {delay: 3, transform: "translateX(100px)", opacity: 0})
-    }
-  }, [show, timeline])
-
-  if (show) {
-    return (
-      <Link 
-        to="/impact-map" 
-        css={tw`bg-sidebar-gray text-black shadow-lg md:absolute top-0 right-0 m-8 md:m-24 p-4 rounded opacity-0`}
-        ref={alert}
-      >
-        <Body css={tw`m-0`}>Check out the IMPACTMAP</Body>
-      </Link>
-    )
-  } else {
-    return null
-  }
-}
 
 export default function Layout(props) {
-  let expand = props.expand
-  const [drawerOffset, setDrawerOffset] = useState(0)
-  const [showAlert, setShowAlert] = useState(typeof window !== 'undefined' && localStorage["visited"] ? false : true)
-
-  useEffect(() => {
-    if (showAlert === true) {
-      localStorage["visited"] = true
-    }
-  }, [showAlert])
+  let [expand, setExpand] = useState(props.expand)
+  const [drawerOffset, setDrawerOffset] = useState(0) 
 
   const closeDrawer = { 
     trigger: () => {
@@ -87,7 +50,6 @@ export default function Layout(props) {
         }
       `}>
         <SEO title="Home" />
-        <Alert show={showAlert} reset={setShowAlert} />
         <div id="featureContent" css={css`
           display: ${expand ? 'none' : 'block'};
         `}>
@@ -95,6 +57,7 @@ export default function Layout(props) {
           <h1 css={tw`text-black font-heading text-lg md:text-4xl mt-2 md:mt-12 mb-2 md:max-w-2xl leading-relaxed`}>Uncovering the Soul with Conscious Wealth.</h1>
         </div>
       </TransitionLink>
+      {props.placement}
       <Drawer expand={expand} offset={setDrawerOffset}>{props.children}</Drawer>
     </main>
   )

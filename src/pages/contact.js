@@ -6,7 +6,7 @@ import ContactForm from "../components/contact-form"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { Section, Col, TitleCol } from "../components/grid"
-import { Heading, Body } from "../components/type"
+import { Heading } from "../components/type"
 import BackgroundImage from 'gatsby-background-image'
 
 const Hero = styled(BackgroundImage)`
@@ -23,12 +23,13 @@ export default function Contact(props) {
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl mb-8`}>Let’s co-design a financial path that matches your purpose</Heading>
-          <BasicCta as="a" href="https://www.raymondjames.com/thehattongroup/" target="_blank" css={tw`mb-8 self-start`}>Invest with Me</BasicCta>
+          <BasicCta as="a" href="https://www.raymondjames.com/thehattongroup/contact" target="_blank" css={tw`mb-8 self-start`}>Invest with Me</BasicCta>
         </div>
       </Hero>
       <Section id="form">
-        <TitleCol css={tw`md:bg-white border-b-0 hidden md:block`}>
-          <Heading as="h2">Let's Talk</Heading>
+        <TitleCol css={tw`md:bg-white border-b-0 pb-12 flex flex-col items-center md:block`}>
+          <Heading as="h2" css={tw`mb-12`}>Let's Talk</Heading>
+          <BasicCta as="a" href="https://calendly.com/brandon_hatton/30min" target="_blank" css={tw`mb-8`}>Schedule a Call</BasicCta>
         </TitleCol>
         <Col css={tw`bg-black text-white`}>
           <ContactForm/>

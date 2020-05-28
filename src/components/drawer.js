@@ -73,12 +73,19 @@ export default function Drawer(props) {
       <nav ref={nav} id="nav" css={css`
         display: ${expand ? 'none' : 'block'};
       `}>
-        <ul css={tw`list-none m-0`}>
-          <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Info</NavItem></li>
-          <li css={tw`mb-0`}><NavItem to="/impact-map" exit={openDrawer} entry={fadeIn}>Impact Map</NavItem></li>
-          <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
-          <li css={tw`mb-0`}><NavItem to="/blog" exit={openDrawer} entry={fadeIn}>BEING ENOUGH: A BLOG</NavItem></li>
-        </ul>
+        <div css={tw`flex flex-col justify-between md:h-screen max-h-full`}>
+          <ul css={tw`list-none m-0`}>
+            <li css={tw`mb-0`}><NavItem to="/about" exit={openDrawer} entry={fadeIn}>Info</NavItem></li>
+            <li css={tw`mb-0`}><NavItem to="/impact-map" exit={openDrawer} entry={fadeIn}>Impact Map</NavItem></li>
+            <li css={tw`mb-0`}><NavItem to="/contact" exit={openDrawer} entry={fadeIn}>Contact</NavItem></li>
+            <li css={tw`mb-0`}><NavItem to="/blog" exit={openDrawer} entry={fadeIn}>BEING ENOUGH: A BLOG</NavItem></li>
+          </ul>
+          <a 
+            href="https://www.linkedin.com/in/brandonthatton/"
+            target="_blank"
+            css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+          >linkedin</a>
+        </div>
       </nav>
       <div id="content" css={css`
         ${tw`overflow-y-scroll md:h-screen`}

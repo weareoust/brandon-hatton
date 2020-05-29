@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import tw from "tailwind.macro"
-import { Heading, Body, Label, Field, Btn } from "./type"
+import { Heading, Label, Field, Btn } from "./type"
 
 function encode(data) {
   return Object.keys(data)

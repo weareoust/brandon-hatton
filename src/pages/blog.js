@@ -7,6 +7,7 @@ import styled from "@emotion/styled"
 import { Section } from "../components/grid"
 import { Heading, Body } from "../components/type"
 import BackgroundImage from 'gatsby-background-image'
+import logo from "../../content/assets/being-enough.svg"
 
 const Hero = styled(BackgroundImage)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
@@ -17,7 +18,7 @@ export default function ImpactMap(props) {
 
   return (
     <Layout expand>
-      <PageNav title="BEING ENOUGH: A BLOG" cta={{text: "Contact", url: "/contact"}}/>
+      <PageNav title="BEING ENOUGH: A BLOG" logo={logo} cta={{text: "Contact", url: "/contact"}}/>
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-2xl`}>A written and spoken<br/>series on Being Enough</Heading>

@@ -7,6 +7,7 @@ import tw from 'tailwind.macro'
 import { Section, SnglCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
 import PageNav from "../components/page-nav"
+import logo from "../../content/assets/being-enough.svg"
 
 const Wrapper = styled.div`
   p {
@@ -26,7 +27,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <PageNav title={`BEING ENOUGH: ${post.frontmatter.title}`} cta={{text: "Back", url: "/blog"}}/>
+        <PageNav title={`BEING ENOUGH: ${post.frontmatter.title}`} logo={logo} cta={{text: "Back", url: "/blog"}}/>
         <article>
           <Section className="bg-bg-gray">
             <SnglCol>

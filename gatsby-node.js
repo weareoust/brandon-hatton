@@ -23,6 +23,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulPosts(sort: { fields: publishedDate, order: DESC }) {
+          nodes {
+            id
+            title
+            slug
+          }
+        }
       }
     `
   )
@@ -32,17 +39,17 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allContentfulPosts.nodes
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const previous = index === posts.length - 1 ? null : posts[index + 1]
+    const next = index === 0 ? null : posts[index - 1]
 
     createPage({
-      path: '/blog' + post.node.fields.slug,
+      path: "/blog/" + post.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: post.slug,
         previous,
         next,
       },

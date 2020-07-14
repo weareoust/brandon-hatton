@@ -1,5 +1,5 @@
 import React from "react"
-import {graphql} from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import DownloadForm from "../components/download-form"
 import PageNav from "../components/page-nav"
@@ -8,7 +8,7 @@ import styled from "@emotion/styled"
 import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading } from "../components/type"
 import logo from "../../content/assets/impact-map-logo.svg"
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from "gatsby-background-image"
 
 const Hero = styled(BackgroundImage)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
@@ -31,8 +31,8 @@ const Step = styled.li`
   }
 
   &::after {
-    content: '';
-    height: 2px; 
+    content: "";
+    height: 2px;
     ${tw`block bg-black bottom-0 absolute w-screen`}
   }
 
@@ -49,39 +49,48 @@ const Step = styled.li`
 const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray`
 
 export default function ImpactMap(props) {
+  const content = props.data.contentfulImpactMap
 
   return (
     <Layout expand>
-      <PageNav title="Impact Map" logo={logo} cta={{text: "Download", url: "/impact-map#download"}}/>
+      <PageNav
+        title="Impact Map"
+        logo={logo}
+        cta={{ text: "Download", url: "/impact-map#download" }}
+      />
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
-          <Heading css={tw`max-w-2xl`}>Design your impact.<br/>Align your giving.</Heading>
+          <Heading css={tw`max-w-xl`}>{content.heroText}</Heading>
         </div>
       </Hero>
       <Section css={tw`bg-bg-gray`}>
         <SnglCol css={tw`md:bg-white`}>
-          <Heading as="h2" css={tw`mb-8`}>A New Way to Track Your Impact</Heading>
-          <BasicCta href="https://www.youtube.com/watch?v=k3Dem-GqXNs" target="_blank">See how it works</BasicCta>
+          <Heading as="h2" css={tw`mb-8`}>
+            {content.ctaTitle}
+          </Heading>
+          <BasicCta href={content.tutorialVideoUrl} target="_blank">
+            {content.ctaButtonText}
+          </BasicCta>
         </SnglCol>
       </Section>
       <Section css={tw`bg-sidebar-gray`}>
         <TitleCol css={tw`md:bg-bg-gray`}>
-          <Heading as="h2">How it Works</Heading>
+          <Heading as="h2">{content.stepsTitle}</Heading>
         </TitleCol>
         <Col css={tw`flex items-center justify-center overflow-hidden`}>
           <List>
-            <Step>State Values and Intended Impact</Step>
-            <Step>Record your Investments for Social Change</Step>
-            <Step>Track Your Impact</Step>
+            {content.steps.map((s, i) => (
+              <Step key={i}>{s.content}</Step>
+            ))}
           </List>
         </Col>
       </Section>
       <Section id="download">
         <TitleCol css={tw`md:bg-white border-b-0 hidden md:block`}>
-          <Heading as="h2">Ready to get started?</Heading>
+          <Heading as="h2">{content.colTitle}</Heading>
         </TitleCol>
         <Col css={tw`bg-black text-white`}>
-          <DownloadForm/>
+          <DownloadForm title={content.formTitle} />
         </Col>
       </Section>
     </Layout>
@@ -90,12 +99,24 @@ export default function ImpactMap(props) {
 
 export const pageQuery = graphql`
   query images {
-    file(name: {eq: "bg-2"}) {
+    file(name: { eq: "bg-2" }) {
       childImageSharp {
         fluid(quality: 100, maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
+    contentfulImpactMap(id: { eq: "b5ace2b2-3459-5ec4-9747-d4c56c6e8a68" }) {
+      heroText
+      ctaTitle
+      ctaButtonText
+      tutorialVideoUrl
+      stepsTitle
+      steps {
+        content
+      }
+      colTitle
+      formTitle
+    }
   }
-`;
+`

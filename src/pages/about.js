@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import CtaButton from "../components/cta-button"
 import PageNav from "../components/page-nav"
@@ -14,31 +15,55 @@ const Hero = styled(Section)`
 `
 
 export default function About(props) {
-
+  const content = props.data.contentfulAboutPage
   return (
     <Layout expand>
-      <PageNav title="Info" cta={{text: "Contact", url: "/"}}/>
+      <PageNav title="Info" cta={{ text: "Contact", url: "/" }} />
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
-          <Heading>Cultivating Healing.<br/>Designing Impact.</Heading>
-          {/* <Body css={tw`md:max-w-lg`}>Cultivating Healing. Designing Impact.</Body> */}
+          <Heading className="max-w-xl">{content.heroText}</Heading>
         </div>
-        <img css={tw`w-1/2 md:w-auto self-end`} src={burst} alt="Brandon Hatton Logo"/>
+        <img
+          css={tw`w-1/2 md:w-auto self-end`}
+          src={burst}
+          alt="Brandon Hatton Logo"
+        />
       </Hero>
       <Section>
-        <TitleCol>
-          <Heading as="h2">The Approach</Heading>
+        <TitleCol className="p-0">
+          <img src={content.headshot.fluid.src} alt="Brandon Hatton" />
         </TitleCol>
         <Col>
-          <Body>It is said that happiness is in the journey, not the destination. As we navigate the often rocky terrain of life, it’s easy to lose sight of this saying. Even with considerable means, one can find themselves still longing to have greater significance. In essence, happiness can lead to success, but success doesn’t always lead to happiness. True happiness comes from building an abundant life with intention. There’s an immense benefit to be gained from guidance and insight that will enable a positive societal impact.</Body>
+          <Heading as="h2" className="mb-8">
+            {content.aboutTitle}
+          </Heading>
+          <Body>{content.aboutBody.aboutBody}</Body>
         </Col>
       </Section>
       <Section css={tw`bg-white`}>
         <SnglCol>
-          <Heading as="h2">Want to learn more about conscious wealth?</Heading>
-          <CtaButton to="/">Contact</CtaButton>
+          <Heading as="h2">{content.ctaTitle}</Heading>
+          <CtaButton to="/contact">Contact</CtaButton>
         </SnglCol>
       </Section>
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query AboutPage {
+    contentfulAboutPage(id: { eq: "bf301b20-8788-5fd8-8e8c-34b4e6f5b150" }) {
+      heroText
+      headshot {
+        fluid(maxWidth: 700, quality: 100) {
+          src
+        }
+      }
+      aboutTitle
+      aboutBody {
+        aboutBody
+      }
+      ctaTitle
+    }
+  }
+`

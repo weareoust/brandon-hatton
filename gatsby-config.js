@@ -1,3 +1,4 @@
+require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Conscious Wealth`,
@@ -5,14 +6,23 @@ module.exports = {
     description: `We can change for the better with a concious wealth mindset`,
     siteUrl: `https://brandonhatton.com/`,
     social: {
-      twitter: ""
-    }
+      twitter: "",
+    },
   },
   plugins: [
     {
       resolve: `gatsby-theme-tailwindcss`,
       options: {
         postCssPlugins: [require("autoprefixer")],
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST,
       },
     },
     {
@@ -74,12 +84,12 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
         typekit: {
-          id: 'adh1nys'
-        }
-      }
+          id: "adh1nys",
+        },
+      },
     },
     `gatsby-plugin-transition-link`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

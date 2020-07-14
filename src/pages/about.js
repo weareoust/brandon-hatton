@@ -9,6 +9,23 @@ import burst from "../../content/assets/burst.svg"
 import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
 
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+
+const Bold = ({ children }) => <span className="bold">{children}</span>
+const Text = ({ children }) => (
+  <Body className="align-center mb-6">{children}</Body>
+)
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+  },
+}
+
 const Hero = styled(Section)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-4 md:px-8 pb-4`}
   background: radial-gradient(circle at 70%, #F40B83 0%, #FA3305 15%, #E5E6E3 90%);
@@ -40,6 +57,11 @@ export default function About(props) {
           <Body>{content.aboutBody.aboutBody}</Body>
         </Col>
       </Section>
+      <Section>
+        <div className="container px-4 py-20 max-w-screen-lg mx-auto">
+          {documentToReactComponents(content.bio.json, options)}
+        </div>
+      </Section>
       <Section css={tw`bg-white`}>
         <SnglCol>
           <Heading as="h2">{content.ctaTitle}</Heading>
@@ -64,6 +86,9 @@ export const pageQuery = graphql`
         aboutBody
       }
       ctaTitle
+      bio {
+        json
+      }
     }
   }
 `

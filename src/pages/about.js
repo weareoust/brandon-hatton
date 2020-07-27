@@ -59,6 +59,9 @@ export default function About(props) {
       </Section>
       <Section>
         <div className="container px-4 py-20 max-w-screen-lg mx-auto">
+          <Heading as="h2" className="mb-8">
+            {content.bioTitle}
+          </Heading>
           {documentToReactComponents(content.bio.json, options)}
         </div>
       </Section>
@@ -86,6 +89,7 @@ export const pageQuery = graphql`
         aboutBody
       }
       ctaTitle
+      bioTitle
       bio {
         json
       }

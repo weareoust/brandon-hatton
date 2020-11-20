@@ -64,10 +64,10 @@ class BlogPostTemplate extends React.Component {
             </SnglCol>
           </Section>
           <Section>
-            <Wrapper className="font-body px-8 md:px-24 py-24">
+            <Wrapper className="font-body px-8 md:px-24 py-24 w-full">
               {video_id ? (
                 <iframe
-                  title="Edward Bailey"
+                  title="Brandon Hatton: Being Enough"
                   style={{
                     width: "100%",
                     minHeight: "500px",

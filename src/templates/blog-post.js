@@ -5,24 +5,12 @@ import SEO from "../components/seo"
 import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 import { Section, SnglCol } from "../components/grid"
-import { Heading, Body } from "../components/type"
+import { Heading } from "../components/type"
 import PageNav from "../components/page-nav"
 import logo from "../../content/assets/being-enough.svg"
+import SubscribeLinks from "../components/subscribe-links"
 
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-
-const Bold = ({ children }) => <span className="bold">{children}</span>
-const Text = ({ children }) => <p className="align-center">{children}</p>
-
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-  },
-}
 
 const Wrapper = styled.div`
   p {
@@ -58,36 +46,72 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <Section className="bg-bg-gray">
-            <SnglCol className="mt-20">
-              <Heading className="max-w-screen-lg mb-8">{post.title}</Heading>
-              <Body>{post.publishedDate}</Body>
-            </SnglCol>
-          </Section>
-          <Section>
-            <Wrapper className="font-body px-8 md:px-24 py-24 w-full">
-              {video_id ? (
-                <iframe
-                  title="Brandon Hatton: Being Enough"
-                  style={{
-                    width: "100%",
-                    minHeight: "500px",
-                  }}
-                  className="mb-12"
-                  src={`https://www.youtube.com/embed/${video_id}`}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+            <SnglCol className="mt-20 py-10">
+              {post.episodeNumber ? (
+                <h2 className="mb-4">Episode {post.episodeNumber}</h2>
               ) : (
                 ""
               )}
-              {documentToReactComponents(post.post.json, options)}
+              <Heading className="max-w-screen-lg mb-2">{post.title}</Heading>
+              {video_id ? (
+                <div>
+                  <div
+                    className="relative w-screen max-w-3xl shadow-lg mt-12"
+                    style={{ paddingBottom: "56.25%" }}
+                  >
+                    <iframe
+                      title="Brandon Hatton: Being Enough"
+                      className="mb-12 absolute inset-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${video_id}`}
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              <div className="grid grid-cols-3 gap-4 text-left my-10 w-full max-w-xl">
+                <div className="border-b  border-black pb-4">
+                  <h2>Published</h2>
+                  <h3 className="uppercase">{post.publishedDate}</h3>
+                </div>
+                <div className="border-b  border-black pb-4">
+                  <h2>Share</h2>
+                  <ul className="flex">
+                    <li>
+                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                    </li>
+                    <li>
+                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                    </li>
+                    <li>
+                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                    </li>
+                    <li>
+                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="border-b  border-black pb-4">
+                  <h2>Subscribe</h2>
+                  <SubscribeLinks />
+                </div>
+              </div>
+            </SnglCol>
+          </Section>
+          <Section>
+            <Wrapper className="font-body px-8 md:px-24 py-24 w-full max-w-screen-lg mx-auto">
+              <h2 className="uppercase mb-4 font-bold tracking-wide">
+                About this episode
+              </h2>
+              {documentToReactComponents(post.post.json)}
             </Wrapper>
           </Section>
           <hr />
           <footer></footer>
         </article>
-
         <nav className="p-12 uppercase bg-bg-gray">
           <ul
             style={{
@@ -142,8 +166,25 @@ export const pageQuery = graphql`
       title
       publishedDate(formatString: "DD MMMM YYYY")
       videoUrl
+      episodeNumber
       post {
         json
+      }
+      guest {
+        websiteUrl
+        twitterUrl
+        photo {
+          fixed(width: 200, quality: 100) {
+            src
+          }
+        }
+        name
+        linkedInUrl
+        jobTitle
+        facebookUrl
+        description {
+          description
+        }
       }
     }
   }

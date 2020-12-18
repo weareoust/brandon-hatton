@@ -9,6 +9,7 @@ import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading } from "../components/type"
 import logo from "../../content/assets/impact-map-logo.svg"
 import BackgroundImage from "gatsby-background-image"
+import SEO from "../components/seo"
 
 const Hero = styled(BackgroundImage)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
@@ -50,9 +51,18 @@ const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-black tracking
 
 export default function ImpactMap(props) {
   const content = props.data.contentfulImpactMap
+  const metaData = {}
+  if (content.seoMetaData) {
+    if (content.seoMetaData.title) metaData.title = content.seoMetaData.title
+    if (content.seoMetaData.description)
+      metaData.description = content.seoMetaData.description.description
+    if (content.seoMetaData.image)
+      metaData.image = content.seoMetaData.image.fluid.src
+  }
 
   return (
     <Layout expand>
+      {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
         title="Impact Map"
         logo={logo}
@@ -117,6 +127,17 @@ export const pageQuery = graphql`
       }
       colTitle
       formTitle
+      seoMetaData {
+        title
+        description {
+          description
+        }
+        image {
+          fluid(maxWidth: 1000, quality: 100) {
+            src
+          }
+        }
+      }
     }
   }
 `

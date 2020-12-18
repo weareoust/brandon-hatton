@@ -8,6 +8,7 @@ import styled from "@emotion/styled"
 import burst from "../../content/assets/burst.svg"
 import { Section, Col, TitleCol, SnglCol } from "../components/grid"
 import { Heading, Body } from "../components/type"
+import SEO from "../components/seo"
 
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -33,8 +34,17 @@ const Hero = styled(Section)`
 
 export default function About(props) {
   const content = props.data.contentfulAboutPage
+  const metaData = {}
+  if (content.seoMetaData) {
+    if (content.seoMetaData.title) metaData.title = content.seoMetaData.title
+    if (content.seoMetaData.description)
+      metaData.description = content.seoMetaData.description.description
+    if (content.seoMetaData.image)
+      metaData.image = content.seoMetaData.image.fluid.src
+  }
   return (
     <Layout expand>
+      {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav title="Info" cta={{ text: "Contact", url: "/" }} />
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
@@ -92,6 +102,17 @@ export const pageQuery = graphql`
       bioTitle
       bio {
         json
+      }
+      seoMetaData {
+        title
+        description {
+          description
+        }
+        image {
+          fluid(maxWidth: 1000, quality: 100) {
+            src
+          }
+        }
       }
     }
   }

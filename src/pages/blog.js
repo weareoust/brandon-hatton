@@ -8,6 +8,7 @@ import { Section } from "../components/grid"
 import { Heading, Body } from "../components/type"
 import BackgroundImage from "gatsby-background-image"
 import logo from "../../content/assets/being-enough.svg"
+import SEO from "../components/seo"
 
 const Hero = styled(BackgroundImage)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
@@ -18,10 +19,20 @@ const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-white tracking
 
 export default function ImpactMap(props) {
   const content = props.data.contentfulBlogPage
+  const metaData = {}
+  if (content.seoMetaData) {
+    if (content.seoMetaData.title) metaData.title = content.seoMetaData.title
+    if (content.seoMetaData.description)
+      metaData.description = content.seoMetaData.description.description
+    if (content.seoMetaData.image)
+      metaData.image = content.seoMetaData.image.fluid.src
+  }
+
   return (
     <Layout expand>
+      {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
-        title="BEING ENOUGH: A BLOG"
+        title="BEING ENOUGH: PODCAST"
         logo={logo}
         cta={{ text: "Contact", url: "/contact" }}
       />
@@ -74,6 +85,17 @@ export const pageQuery = graphql`
       heroText
       heroCtaText
       heroCtaUrl
+      seoMetaData {
+        title
+        description {
+          description
+        }
+        image {
+          fluid(maxWidth: 1000, quality: 100) {
+            src
+          }
+        }
+      }
     }
   }
 `

@@ -35,6 +35,12 @@ export default function SubscribeLinks() {
           display: block;
           padding: 0.25rem;
         }
+        &:hover li {
+          opacity: 0.5;
+        }
+        & > li:hover {
+          opacity: 1;
+        }
       `}
     >
       {settings.subscribeApple ? (

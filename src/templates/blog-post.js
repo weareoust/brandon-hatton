@@ -9,8 +9,15 @@ import { Heading } from "../components/type"
 import PageNav from "../components/page-nav"
 import logo from "../../content/assets/being-enough.svg"
 import SubscribeLinks from "../components/subscribe-links"
+import { css } from "@emotion/core"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+
+import twitter from "../images/twitter.svg"
+import fb from "../images/fb.svg"
+import linkedin from "../images/linkedin.svg"
+import link from "../images/link.svg"
+import envelope from "../images/envelope.svg"
 
 const Wrapper = styled.div`
   p {
@@ -23,7 +30,14 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.contentfulPosts
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
+    const metaData = {}
+    if (post.seoMetaData) {
+      if (post.seoMetaData.title) metaData.title = post.seoMetaData.title
+      if (post.seoMetaData.description)
+        metaData.description = post.seoMetaData.description.description
+      if (post.seoMetaData.image)
+        metaData.image = post.seoMetaData.image.fluid.src
+    }
     let video_id = post.videoUrl
     if (video_id) {
       video_id = video_id.split("v=")[1]
@@ -35,20 +49,19 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle} expand>
-        <SEO
-          title={post.title}
-          description={post.description || post.excerpt}
-        />
+        {post.seoMetaData ? <SEO {...metaData} /> : ""}
         <PageNav
           title={`BEING ENOUGH: ${post.title}`}
           logo={logo}
-          cta={{ text: "Back", url: "/blog" }}
+          cta={{ text: "Back", url: "/beingenough" }}
         />
         <article>
           <Section className="bg-bg-gray">
-            <SnglCol className="mt-20 py-10">
+            <SnglCol css={tw`mt-20 py-10`}>
               {post.episodeNumber ? (
-                <h2 className="mb-4">Episode {post.episodeNumber}</h2>
+                <h2 className="mb-4 uppercase tracking-wide">
+                  Episode {post.episodeNumber}
+                </h2>
               ) : (
                 ""
               )}
@@ -56,7 +69,7 @@ class BlogPostTemplate extends React.Component {
               {video_id ? (
                 <div>
                   <div
-                    className="relative w-screen max-w-3xl shadow-lg mt-12"
+                    className="relative w-screen max-w-full md:max-w-3xl shadow-lg mt-12"
                     style={{ paddingBottom: "56.25%" }}
                   >
                     <iframe
@@ -72,40 +85,213 @@ class BlogPostTemplate extends React.Component {
               ) : (
                 ""
               )}
-              <div className="grid grid-cols-3 gap-4 text-left my-10 w-full max-w-xl">
-                <div className="border-b  border-black pb-4">
-                  <h2>Published</h2>
+              <div
+                className={`grid md:grid-cols-${
+                  post.showSubscribeIcons ? "3" : "2"
+                } gap-6 md:gap-4 text-left my-10 w-full max-w-xl`}
+              >
+                <div className="border-b  border-black pb-4 md:pb-4">
+                  <h2 className="font-bold mb-0 md:mb-2 font-body text-black">
+                    Published
+                  </h2>
                   <h3 className="uppercase">{post.publishedDate}</h3>
                 </div>
-                <div className="border-b  border-black pb-4">
-                  <h2>Share</h2>
-                  <ul className="flex">
+                <div className="border-b  border-black pb-4 md:pb-4">
+                  <h2 className="font-bold mb-0 md:mb-2 font-body text-black">
+                    Share
+                  </h2>
+                  <ul
+                    css={css`
+                      display: flex;
+                      align-items: center;
+
+                      a {
+                        display: block;
+                        padding: 0.25rem;
+                      }
+
+                      &:hover li {
+                        opacity: 0.5;
+                      }
+                      & > li:hover {
+                        opacity: 1;
+                      }
+                    `}
+                  >
                     <li>
-                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${"https://brandonhatton.com/beingenough/" +
+                          post.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={fb} alt="" />
+                      </a>
                     </li>
                     <li>
-                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                      <a
+                        href={`https://twitter.com/intent/tweet?url=${"https://brandonhatton.com/beingenough/" +
+                          post.slug}&text=${"Being Enough: " + post.title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={twitter} alt="" />
+                      </a>
                     </li>
                     <li>
-                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                      <a
+                        href={`http://www.linkedin.com/shareArticle?url=${"https://brandonhatton.com/beingenough/" +
+                          post.slug}&text=${"Being Enough: " +
+                          post.title}&title=${"Being Enough: " +
+                          post.title}&source=https://brandonhatton.com`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={linkedin} alt="" />
+                      </a>
                     </li>
                     <li>
-                      <div className="bg-black h-2 w-2 rounded-full mr-3"></div>
+                      <a
+                        href={`mailto:?subject=${"Brandon Hatton: Being Enough - " +
+                          post.title}&body=${"https://brandonhatton.com/beingenough/" +
+                          post.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={envelope} alt="" />
+                      </a>
                     </li>
                   </ul>
                 </div>
-                <div className="border-b  border-black pb-4">
-                  <h2>Subscribe</h2>
-                  <SubscribeLinks />
-                </div>
+                {post.showSubscribeIcons ? (
+                  <div className="border-b  border-black pb-4 md:pb-4">
+                    <h2 className="font-bold mb-0 md:mb-2 font-body text-black">
+                      Subscribe
+                    </h2>
+                    <SubscribeLinks />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </SnglCol>
           </Section>
           <Section>
             <Wrapper className="font-body px-8 md:px-24 py-24 w-full max-w-screen-lg mx-auto">
-              <h2 className="uppercase mb-4 font-bold tracking-wide">
-                About this episode
-              </h2>
+              {post.guest ? (
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                  <h2 className="uppercase mb-4 font-bold tracking-wide w-full md:col-span-2 text-center md:text-left">
+                    On this Episode
+                  </h2>
+                  {post.guest.map(g => {
+                    return (
+                      <div>
+                        <div className="flex flex-col md:flex-row items-center mb-4">
+                          <img
+                            src={g.photo.fixed.src}
+                            alt=""
+                            className="rounded-full w-32 mb-4 md:mb-0"
+                          />
+                          <div className="ml-4">
+                            <h3 className="text-2xl text-center md:text-left">
+                              {g.name}
+                            </h3>
+                            <h4 className="mb-2 text-center md:text-left">
+                              {g.jobTitle}
+                            </h4>
+                            <ul
+                              className="justify-center md:justify-start"
+                              css={css`
+                                display: flex;
+                                align-items: center;
+
+                                a {
+                                  display: block;
+                                  padding: 0.25rem;
+                                }
+
+                                &:hover li {
+                                  opacity: 0.5;
+                                }
+                                & > li:hover {
+                                  opacity: 1;
+                                }
+                              `}
+                            >
+                              {g.linkedInUrl ? (
+                                <li>
+                                  <a
+                                    href={g.linkedInUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <img src={linkedin} alt="" />
+                                  </a>
+                                </li>
+                              ) : (
+                                ""
+                              )}
+                              {g.facebookUrl ? (
+                                <li>
+                                  <a
+                                    href={g.facebookUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <img src={fb} alt="" />
+                                  </a>
+                                </li>
+                              ) : (
+                                ""
+                              )}
+                              {g.twitterUrl ? (
+                                <li>
+                                  <a
+                                    href={g.twitterUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <img src={twitter} alt="" />
+                                  </a>
+                                </li>
+                              ) : (
+                                ""
+                              )}
+                              {g.websiteUrl ? (
+                                <li>
+                                  <a
+                                    href={g.websiteUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <img src={link} alt="" />
+                                  </a>
+                                </li>
+                              ) : (
+                                ""
+                              )}
+                            </ul>
+                          </div>
+                        </div>
+                        {/* {g.description ? (
+                          <p>{g.description.description}</p>
+                        ) : (
+                          ""
+                        )} */}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
+              {post.videoUrl ? (
+                <h2 className="uppercase mb-4 font-bold tracking-wide">
+                  About this episode
+                </h2>
+              ) : (
+                ""
+              )}
               {documentToReactComponents(post.post.json)}
             </Wrapper>
           </Section>
@@ -164,9 +350,22 @@ export const pageQuery = graphql`
     contentfulPosts(slug: { eq: $slug }) {
       id
       title
+      slug
       publishedDate(formatString: "DD MMMM YYYY")
       videoUrl
       episodeNumber
+      showSubscribeIcons
+      seoMetaData {
+        title
+        description {
+          description
+        }
+        image {
+          fluid(maxWidth: 1000, quality: 100) {
+            src
+          }
+        }
+      }
       post {
         json
       }
@@ -174,7 +373,7 @@ export const pageQuery = graphql`
         websiteUrl
         twitterUrl
         photo {
-          fixed(width: 200, quality: 100) {
+          fixed(width: 150, quality: 100) {
             src
           }
         }

@@ -8,6 +8,7 @@ import styled from "@emotion/styled"
 import { Section, Col, TitleCol } from "../components/grid"
 import { Heading } from "../components/type"
 import BackgroundImage from "gatsby-background-image"
+import SEO from "../components/seo"
 
 const Hero = styled(BackgroundImage)`
   ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 border-0 border-black border-solid border-b-2`}
@@ -17,8 +18,17 @@ const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-black tracking
 
 export default function Contact(props) {
   const content = props.data.contentfulContactPage
+  const metaData = {}
+  if (content.seoMetaData) {
+    if (content.seoMetaData.title) metaData.title = content.seoMetaData.title
+    if (content.seoMetaData.description)
+      metaData.description = content.seoMetaData.description.description
+    if (content.seoMetaData.image)
+      metaData.image = content.seoMetaData.image.fluid.src
+  }
   return (
     <Layout expand>
+      {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
         title="Contact"
         cta={{ text: "Contact", url: "/contact#form" }}
@@ -77,6 +87,17 @@ export const pageQuery = graphql`
       colTitle
       colButtonText
       colButtonUrl
+      seoMetaData {
+        title
+        description {
+          description
+        }
+        image {
+          fluid(maxWidth: 1000, quality: 100) {
+            src
+          }
+        }
+      }
     }
   }
 `

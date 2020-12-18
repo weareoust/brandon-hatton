@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { TweenMax } from "gsap/all"
 import SubscribeForm from "../components/subscribe-form"
@@ -11,6 +13,34 @@ export default function Home(props) {
     toastTween.reverse(3.6)
     setToast(false)
     localStorage.setItem("subscribeModalViewed", "true")
+  }
+  const data = useStaticQuery(graphql`
+    query {
+      page: contentfulHomePage(
+        id: { eq: "8a1fd261-e222-5c86-8ec1-4ff57f036606" }
+      ) {
+        seoMetaData {
+          title
+          description {
+            description
+          }
+          image {
+            fluid(maxWidth: 1000, quality: 100) {
+              src
+            }
+          }
+        }
+      }
+    }
+  `)
+  const metaData = {}
+  if (data.page.seoMetaData) {
+    if (data.page.seoMetaData.title)
+      metaData.title = data.page.seoMetaData.title
+    if (data.page.seoMetaData.description)
+      metaData.description = data.page.seoMetaData.description.description
+    if (data.page.seoMetaData.image)
+      metaData.image = data.page.seoMetaData.image.fluid.src
   }
 
   useEffect(() => {
@@ -48,6 +78,8 @@ export default function Home(props) {
           <SubscribeForm onSubmit={closeToast} />
         </div>
       }
-    />
+    >
+      {data.page.seoMetaData ? <SEO {...metaData} /> : ""}
+    </Layout>
   )
 }

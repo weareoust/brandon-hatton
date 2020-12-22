@@ -1,0 +1,2 @@
+/blog /beingenough
+/blog/* /beingenough/:splat

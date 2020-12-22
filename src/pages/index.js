@@ -8,7 +8,7 @@ import tw from "tailwind.macro"
 
 export default function Home(props) {
   const [toast, setToast] = useState(true)
-  let toastTween = false
+  const [toastTween, setToastTween] = useState(false)
   const closeToast = () => {
     toastTween.reverse(3.6)
     setToast(false)
@@ -47,17 +47,19 @@ export default function Home(props) {
     const modalViewed = localStorage.getItem("subscribeModalViewed")
 
     if (toastTween === false)
-      toastTween = TweenMax.fromTo(
-        "#toast",
-        0.6,
-        { opacity: 0, transform: "translateX(-40px)", display: "none" },
-        { opacity: 1, transform: "none", display: "block", delay: 3 }
-      ).pause()
+      setToastTween(
+        TweenMax.fromTo(
+          "#toast",
+          0.6,
+          { opacity: 0, transform: "translateX(-40px)", display: "none" },
+          { opacity: 1, transform: "none", display: "block", delay: 3 }
+        ).pause()
+      )
 
-    if (toast && !modalViewed) {
+    if (toast && !modalViewed && toastTween) {
       toastTween.play()
     }
-  }, [toast, toastTween])
+  }, [toast, toastTween, setToastTween])
 
   return (
     <Layout

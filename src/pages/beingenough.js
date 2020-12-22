@@ -52,8 +52,15 @@ export default function ImpactMap(props) {
       {props.data.allContentfulPosts.nodes.map((blog, i) => {
         return (
           <Section>
-            <Link to={`/blog/${blog.slug}`} className="p-4" key={i}>
-              <Heading className="max-w-xl">{blog.title}</Heading>
+            <Link to={`/beingenough/${blog.slug}`} className="p-4" key={i}>
+              {blog.episodeNumber ? (
+                <h2 className="uppercase tracking-wide">
+                  Episode {blog.episodeNumber}
+                </h2>
+              ) : (
+                ""
+              )}
+              <Heading>{blog.title}</Heading>
               <Body>{blog.publishedDate}</Body>
             </Link>
           </Section>
@@ -76,6 +83,7 @@ export const pageQuery = graphql`
       nodes {
         id
         title
+        episodeNumber
         publishedDate(formatString: "DD MMMM YYYY")
         slug
       }

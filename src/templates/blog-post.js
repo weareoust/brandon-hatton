@@ -69,8 +69,16 @@ class BlogPostTemplate extends React.Component {
               {video_id ? (
                 <div>
                   <div
-                    className="relative w-screen max-w-full md:max-w-3xl shadow-lg mt-12"
-                    style={{ paddingBottom: "56.25%" }}
+                    className="relative w-screen md:max-w-xl lg:max-w-3xl shadow-lg mt-12"
+                    css={css`
+                      padding-bottom: 56.25%;
+                      margin-left: auto;
+                      margin-right: auto;
+
+                      @media (max-width: 767px) {
+                        max-width: 90%;
+                      }
+                    `}
                   >
                     <iframe
                       title="Brandon Hatton: Being Enough"
@@ -311,7 +319,7 @@ class BlogPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link
-                  to={"/blog/" + previous.slug}
+                  to={"/beingenough/" + previous.slug}
                   rel="prev"
                   className="font-body"
                 >
@@ -322,7 +330,7 @@ class BlogPostTemplate extends React.Component {
             <li>
               {next && (
                 <Link
-                  to={"/blog/" + next.slug}
+                  to={"/beingenough/" + next.slug}
                   rel="next"
                   className="font-body"
                 >

@@ -66,6 +66,7 @@ class BlogPostTemplate extends React.Component {
                 ""
               )}
               <Heading className="max-w-screen-lg mb-2">{post.title}</Heading>
+              <h3 className="uppercase">{post.publishedDate}</h3>
               {video_id ? (
                 <div>
                   <div
@@ -95,15 +96,9 @@ class BlogPostTemplate extends React.Component {
               )}
               <div
                 className={`grid md:grid-cols-${
-                  post.showSubscribeIcons ? "3" : "2"
-                } gap-6 md:gap-4 text-left my-10 w-full max-w-xl`}
+                  post.showSubscribeIcons ? "2 max-w-sm" : "1 max-w-xs"
+                } gap-6 md:gap-4 text-left my-10 w-full`}
               >
-                <div className="border-b  border-black pb-4 md:pb-4">
-                  <h2 className="font-bold mb-0 md:mb-2 font-body text-black">
-                    Published
-                  </h2>
-                  <h3 className="uppercase">{post.publishedDate}</h3>
-                </div>
                 <div className="border-b  border-black pb-4 md:pb-4">
                   <h2 className="font-bold mb-0 md:mb-2 font-body text-black">
                     Share

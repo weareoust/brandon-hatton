@@ -18,6 +18,7 @@ export default function Layout(props) {
         id: { eq: "8a1fd261-e222-5c86-8ec1-4ff57f036606" }
       ) {
         linkedinUrl
+        twitterUrl
         tagline
       }
     }
@@ -88,6 +89,7 @@ export default function Layout(props) {
         expand={expand}
         offset={setDrawerOffset}
         linkedin={data.page.linkedinUrl}
+        twitter={data.page.twitterUrl}
       >
         {props.children}
       </Drawer>

@@ -116,14 +116,28 @@ export default function Drawer(props) {
               </NavItem>
             </li>
           </ul>
-          <a
-            href={props.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
-          >
-            linkedin
-          </a>
+          <ul className="flex">
+            <li>
+            <a
+              href={props.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+              >
+              linkedin
+            </a>
+            </li>
+            <li>
+            <a
+              href={props.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              css={tw`p-2 m-4 ml-0 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+              >
+              Twitter
+            </a>
+            </li>
+          </ul>
         </div>
       </nav>
       <div

@@ -3,10 +3,11 @@ import { css } from "@emotion/core"
 import { useStaticQuery, graphql } from "gatsby"
 
 import apple from "../images/apple.svg"
-import googlePlay from "../images/google-play.svg"
+import googlePlay from "../images/google-brands.svg"
 import rss from "../images/rss.svg"
 import stitcher from "../images/stitcher.svg"
 import tunein from "../images/tunein.svg"
+import spotify from "../images/spotify-brands.svg"
 
 export default function SubscribeLinks() {
   const data = useStaticQuery(graphql`
@@ -19,6 +20,7 @@ export default function SubscribeLinks() {
         subscribeRss
         subscribeStitcher
         subscribeTuneIn
+        subscribeSpotify
       }
     }
   `)
@@ -103,6 +105,19 @@ export default function SubscribeLinks() {
             rel="noopener noreferrer"
           >
             <img src={tunein} alt="" />
+          </a>
+        </li>
+      ) : (
+        ""
+      )}
+      {settings.subscribeSpotify ? (
+        <li>
+          <a
+            href={settings.subscribeSpotify}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={spotify} alt="" />
           </a>
         </li>
       ) : (

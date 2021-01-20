@@ -190,10 +190,12 @@ class BlogPostTemplate extends React.Component {
                     return (
                       <div>
                         <div className="flex flex-col md:flex-row items-center mb-4">
-                          <img
-                            src={g.photo.fixed.src}
+                          <div
+                            style={{
+                              backgroundImage: `url(${g.photo.fixed.src})`,
+                            }}
                             alt=""
-                            className="rounded-full w-32 mb-4 md:mb-0"
+                            className="rounded-full w-32 h-32 bg-center bg-cover flex-shrink-0 mb-4 md:mb-0"
                           />
                           <div className="ml-4">
                             <h3 className="text-2xl text-center md:text-left">
@@ -343,51 +345,51 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+         query BlogPostBySlug($slug: String!) {
+           site {
+             siteMetadata {
+               title
+             }
+           }
 
-    contentfulPosts(slug: { eq: $slug }) {
-      id
-      title
-      slug
-      publishedDate(formatString: "DD MMMM YYYY")
-      videoUrl
-      episodeNumber
-      showSubscribeIcons
-      seoMetaData {
-        title
-        description {
-          description
-        }
-        image {
-          fluid(maxWidth: 1000, quality: 100) {
-            src
-          }
-        }
-      }
-      post {
-        json
-      }
-      guest {
-        websiteUrl
-        twitterUrl
-        photo {
-          fixed(width: 150, quality: 100) {
-            src
-          }
-        }
-        name
-        linkedInUrl
-        jobTitle
-        facebookUrl
-        description {
-          description
-        }
-      }
-    }
-  }
-`
+           contentfulPosts(slug: { eq: $slug }) {
+             id
+             title
+             slug
+             publishedDate(formatString: "DD MMMM YYYY")
+             videoUrl
+             episodeNumber
+             showSubscribeIcons
+             seoMetaData {
+               title
+               description {
+                 description
+               }
+               image {
+                 fluid(maxWidth: 1000, quality: 100) {
+                   src
+                 }
+               }
+             }
+             post {
+               json
+             }
+             guest {
+               websiteUrl
+               twitterUrl
+               photo {
+                 fixed(width: 200, quality: 100) {
+                   src
+                 }
+               }
+               name
+               linkedInUrl
+               jobTitle
+               facebookUrl
+               description {
+                 description
+               }
+             }
+           }
+         }
+       `

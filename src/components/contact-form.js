@@ -43,7 +43,7 @@ export default function ContactForm(props) {
     } else {
       return (
         <div css={tw`flex flex-col items-center`}>
-          <Heading css={tw`text-center mb-10`}>Contact</Heading>
+          {/* <Heading css={tw`text-center mb-10`}>Contact</Heading> */}
           <form 
             name="contactForm" 
             method="post"

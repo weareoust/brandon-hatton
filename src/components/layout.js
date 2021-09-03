@@ -20,6 +20,7 @@ export default function Layout(props) {
         linkedinUrl
         twitterUrl
         tagline
+        shortText
       }
     }
   `)
@@ -82,6 +83,7 @@ export default function Layout(props) {
           >
             {data.page.tagline}
           </h1>
+          <p className="font-body text-xl">{data.page.shortText}</p>
         </div>
       </TransitionLink>
       {props.placement}

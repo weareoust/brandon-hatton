@@ -97,7 +97,17 @@ export default function Drawer(props) {
           <ul css={tw`list-none m-0`}>
             <li css={tw`mb-0`}>
               <NavItem to="/about" exit={openDrawer} entry={fadeIn}>
-                Info
+                About
+              </NavItem>
+            </li>
+            <li css={tw`mb-0`}>
+              <NavItem to="/book" exit={openDrawer} entry={fadeIn}>
+                Book
+              </NavItem>
+            </li>
+            <li css={tw`mb-0`}>
+              <NavItem to="/workshop" exit={openDrawer} entry={fadeIn}>
+                Workshop
               </NavItem>
             </li>
             <li css={tw`mb-0`}>
@@ -110,32 +120,32 @@ export default function Drawer(props) {
                 Contact
               </NavItem>
             </li>
-            <li css={tw`mb-0`}>
+            {/* <li css={tw`mb-0`}>
               <NavItem to="/beingenough" exit={openDrawer} entry={fadeIn}>
                 BEING ENOUGH: A PODCAST
               </NavItem>
-            </li>
+            </li> */}
           </ul>
           <ul className="flex">
             <li>
-            <a
-              href={props.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+              <a
+                href={props.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
               >
-              linkedin
-            </a>
+                linkedin
+              </a>
             </li>
             <li>
-            <a
-              href={props.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              css={tw`p-2 m-4 ml-0 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+              <a
+                href={props.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                css={tw`p-2 m-4 ml-0 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
               >
-              Twitter
-            </a>
+                Twitter
+              </a>
             </li>
           </ul>
         </div>

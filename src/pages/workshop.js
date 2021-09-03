@@ -32,8 +32,8 @@ const Hero = styled(Section)`
   background: radial-gradient(circle at 70%, #F40B83 0%, #FA3305 15%, #E5E6E3 90%);
 `
 
-export default function About(props) {
-  const content = props.data.contentfulAboutPage
+export default function Workshops(props) {
+  const content = props.data.contentfulWorkshopPage
   const metaData = {}
   if (content.seoMetaData) {
     if (content.seoMetaData.title) metaData.title = content.seoMetaData.title
@@ -45,29 +45,51 @@ export default function About(props) {
   return (
     <Layout expand>
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
-      <PageNav title="About" cta={{ text: "Contact", url: "/" }} />
-      <Hero>
-        <div css={tw`flex flex-col justify-between`}>
-          <Heading className="max-w-xl">{content.heroText}</Heading>
-        </div>
-        <img
-          css={tw`w-1/2 md:w-auto self-end`}
-          src={burst}
-          alt="Brandon Hatton Logo"
-        />
-      </Hero>
-      <Section>
-        <TitleCol className="p-0">
+      <PageNav title="Workshop" cta={{ text: "Contact", url: "/" }} />
+      <div
+        css={css`
+          ${tw`text-left`}
+
+          h1 {
+            ${tw`font-heading mb-4 md:text-4xl text-2xl`}
+          }
+
+          h2 {
+            ${tw`font-heading mb-4 md:text-3xl text-2xl`}
+          }
+
+          p {
+            margin-bottom: 1.2rem;
+            ${tw`md:text-xl`}
+          }
+
+          ul {
+            ${tw`list-disc pl-5`}
+          }
+        `}
+      >
+        <Hero>
+          <div css={tw`flex flex-col justify-between`}>
+            {documentToReactComponents(content.heroBody.json)}
+          </div>
+          <img
+            css={tw`w-1/2 md:w-auto self-end`}
+            src={burst}
+            alt="Brandon Hatton Logo"
+          />
+        </Hero>
+        <Section>
+          {/* <TitleCol className="p-0">
           <img src={content.headshot.fluid.src} alt="Brandon Hatton" />
-        </TitleCol>
-        <Col>
-          <Heading as="h2" className="mb-2">
+        </TitleCol> */}
+          {/* <Heading as="h2" className="mb-2">
             {content.aboutTitle}
-          </Heading>
-          <h3 className="mb-8 font-bold text-2xl font-heading">
+          </Heading> */}
+          {/* <h3 className="mb-8 font-bold text-2xl font-heading">
             {content.aboutSubtitle}
-          </h3>
+          </h3> */}
           <div
+            className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col"
             css={css`
               p {
                 margin-bottom: 1.2rem;
@@ -76,9 +98,8 @@ export default function About(props) {
           >
             {documentToReactComponents(content.aboutBody2.json)}
           </div>
-        </Col>
-      </Section>
-      {/* <Section>
+        </Section>
+        {/* <Section>
         <div className="container px-4 py-20 max-w-screen-lg mx-auto">
           <Heading as="h2" className="mb-8">
             {content.bioTitle}
@@ -86,53 +107,30 @@ export default function About(props) {
           {documentToReactComponents(content.bio.json, options)}
         </div>
       </Section> */}
-      <Section css={tw`bg-white`}>
-        <SnglCol>
-          <h2 className="text-3xl font-heading mb-12">{content.ctaTitle}</h2>
-          <Link
-            className="mb-12 text-center font-body text-3xl font-light tracking-wide mx-auto p-2 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start"
-            to="/contact"
-          >
-            Contact
-          </Link>
-          <div
-            css={css`
-              p {
-                margin-bottom: 1.2rem;
-                ${tw`text-xl`}
-              }
-
-              a {
-                text-decoration: underline;
-              }
-            `}
-          >
-            {documentToReactComponents(content.subCta.json)}
+        <Section css={tw`bg-white`}>
+          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col">
+            <div className="text-left mb-4">
+              {documentToReactComponents(content.subCta.json)}
+            </div>
+            <Link
+              className="mb-12 text-center font-body text-normal font-light tracking-wide mx-auto p-2 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start"
+              to="/contact"
+            >
+              {content.ctaTitle}
+            </Link>
           </div>
-        </SnglCol>
-      </Section>
+        </Section>
+      </div>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query AboutPage {
-    contentfulAboutPage(id: { eq: "bf301b20-8788-5fd8-8e8c-34b4e6f5b150" }) {
-      heroText
-      headshot {
-        fluid(maxWidth: 700, quality: 100) {
-          src
-        }
-      }
-      aboutTitle
-      aboutSubtitle
-      aboutBody2 {
-        json
-      }
-      subCta {
-        json
-      }
-      ctaTitle
+  query WorkshopPage {
+    contentfulWorkshopPage(
+      id: { eq: "dc32d11e-d45e-59ec-baf8-c566e3e6d82a" }
+    ) {
+      id
       seoMetaData {
         title
         description {
@@ -143,6 +141,16 @@ export const pageQuery = graphql`
             src
           }
         }
+      }
+      heroBody {
+        json
+      }
+      aboutBody2 {
+        json
+      }
+      ctaTitle
+      subCta {
+        json
       }
     }
   }

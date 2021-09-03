@@ -192,7 +192,7 @@ class BlogPostTemplate extends React.Component {
                         <div className="flex flex-col md:flex-row items-center mb-4">
                           <div
                             style={{
-                              backgroundImage: `url(${g.photo.fixed.src})`,
+                              backgroundImage: `url(${g.photo && g.photo.fixed.src})`,
                             }}
                             alt=""
                             className="rounded-full w-32 h-32 bg-center bg-cover flex-shrink-0 mb-4 md:mb-0"

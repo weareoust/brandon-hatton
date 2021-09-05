@@ -66,7 +66,7 @@ export default function ImpactMap(props) {
       <PageNav
         title="Impact Map"
         logo={logo}
-        cta={{ text: "Download", url: "/impact-map#download" }}
+        // cta={{ text: "Download", url: "/impact-map#download" }}
       />
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>

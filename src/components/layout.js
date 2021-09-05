@@ -83,7 +83,7 @@ export default function Layout(props) {
           >
             {data.page.tagline}
           </h1>
-          <p className="font-body text-xl">{data.page.shortText}</p>
+          {/* <p className="font-body text-xl">{data.page.shortText}</p> */}
         </div>
       </TransitionLink>
       {props.placement}

@@ -45,7 +45,10 @@ export default function Workshops(props) {
   return (
     <Layout expand>
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
-      <PageNav title="Workshop" cta={{ text: "Contact", url: "/" }} />
+      <PageNav
+        title="Workshop"
+        cta={{ text: "Invest", url: "https://thehatton.group/" }}
+      />
       <div
         css={css`
           ${tw`text-left`}
@@ -69,7 +72,7 @@ export default function Workshops(props) {
         `}
       >
         <Hero>
-          <div css={tw`flex flex-col justify-between`}>
+          <div css={tw`flex flex-col justify-start`, css`p {${tw`font-heading md:text-2xl`} max-width: 820px;}`}>
             {documentToReactComponents(content.heroBody.json)}
           </div>
           <img
@@ -108,12 +111,12 @@ export default function Workshops(props) {
         </div>
       </Section> */}
         <Section css={tw`bg-white`}>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col">
+          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
             <div className="text-left mb-4">
               {documentToReactComponents(content.subCta.json)}
             </div>
             <Link
-              className="mb-12 text-center font-body text-normal font-light tracking-wide mx-auto p-2 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start"
+              className="px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray"
               to="/contact"
             >
               {content.ctaTitle}

@@ -50,7 +50,7 @@ export default function Contact(props) {
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
         title="Contact"
-        cta={{ text: "Contact", url: "/contact#form" }}
+        // cta={{ text: "Contact", url: "/contact#form" }}
       />
       {/* <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
@@ -86,14 +86,14 @@ export default function Contact(props) {
         </Col>
       </Section> */}
       <Section id="form" css={tw`border-b-0`}>
-        <div className="container px-4 py-20 mt-8 max-w-screen-lg mx-auto flex flex-col">
+        <div className="container px-4 py-20 mt-8 max-w-screen-lg mx-auto flex flex-col min-h-screen items-center justify-center">
           <Heading css={tw`text-center mb-4`}>
             {content.heroText}
           </Heading>
           <ContactForm />
-          <div className="text-center">
+          {/* <div className="text-center mt-4">
             {documentToReactComponents(content.postFormText.json, options)}
-          </div>
+          </div> */}
         </div>
       </Section>
     </Layout>

@@ -42,17 +42,17 @@ export default function ContactForm(props) {
       )
     } else {
       return (
-        <div css={tw`flex flex-col items-center`}>
+        <div css={tw`flex flex-col items-center w-full`}>
           {/* <Heading css={tw`text-center mb-10`}>Contact</Heading> */}
-          <form 
-            name="contactForm" 
+          <form
+            name="contactForm"
             method="post"
             action="/success"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             id="contact-form"
-            css={tw`flex flex-col w-full max-w-sm`}
+            css={tw`flex flex-col items-center w-full max-w-sm`}
           >
             <input type="hidden" name="contactForm" value="contactForm" />
             <p hidden>
@@ -60,19 +60,44 @@ export default function ContactForm(props) {
                 Don’t fill this out: <input name="bot-field" />
               </label>
             </p>
-            <Label htmlFor="name">
+            <Label css={tw`w-full`} htmlFor="name">
               Name
             </Label>
-            <Field required name="name" type="text" placeholder="First and Last Name" onChange={handleChange}/>
-            <Label htmlFor="email">
+            <Field
+              required
+              name="name"
+              type="text"
+              placeholder="First and Last Name"
+              onChange={handleChange}
+              css={tw`w-full`}
+            />
+            <Label css={tw`w-full`} htmlFor="email">
               Email Address
             </Label>
-            <Field required name="email" type="email" placeholder="brandon@brandonhatton.com" onChange={handleChange}/>
-            <Label htmlFor="message">
+            <Field
+              required
+              name="email"
+              type="email"
+              placeholder="brandon@brandonhatton.com"
+              css={tw`w-full`}
+              onChange={handleChange}
+            />
+            <Label css={tw`w-full`} htmlFor="message">
               Message
             </Label>
-            <Field as="textarea" required name="message" placeholder="Message" onChange={handleChange}/>
-            <Btn css={tw`max-w-xs mx-auto px-6`}>Submit</Btn>
+            <Field
+              as="textarea"
+              required
+              name="message"
+              placeholder="Message"
+              css={tw`w-full`}
+              onChange={handleChange}
+            />
+            <Btn
+              css={tw`px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray mt-4`}
+            >
+              Submit
+            </Btn>
           </form>
         </div>
       )

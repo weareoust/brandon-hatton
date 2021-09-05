@@ -72,7 +72,7 @@ export default function About(props) {
         `}
       >
         <Section className="mt-20" css={tw`block px-4`}>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col">
+          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
             <div>
               <img
                 src={content.headshot.fluid.src}
@@ -102,10 +102,10 @@ export default function About(props) {
               </div>
             </div>
             <details
-              className="border border-black inline-block mx-auto rounded mt-8"
+              className="font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none mt-8"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center`}
+                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-black hover:text-sidebar-gray`}
                 }
 
                 li:last-child {
@@ -118,7 +118,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full"
+                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-black hover:text-sidebar-gray"
                 css={css`
                   list-style: none;
 
@@ -148,13 +148,13 @@ export default function About(props) {
             ${tw`text-white`}
           `}
         >
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col">
+          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
             {documentToReactComponents(content.aboutBody2.json, options)}
             <details
-              className="border border-white inline-block mx-auto rounded mt-8"
+              className="font-body text-sm md:text-lg text-white tracking-wide uppercase border-2 border-white border-solid rounded-lg shadow-none mt-8"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center`}
+                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-white hover:text-black`}
                 }
 
                 li:last-child {
@@ -167,7 +167,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full"
+                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-white hover:text-black"
                 css={css`
                   list-style: none;
 
@@ -188,13 +188,13 @@ export default function About(props) {
           </div>
         </Section>
         <Section>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col">
+          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
             {documentToReactComponents(content.subCta.json, options)}
             <details
-              className="border border-black inline-block mx-auto rounded mt-8"
+              className="font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none mt-8"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center`}
+                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-black hover:text-sidebar-gray`}
                 }
 
                 li:last-child {
@@ -207,7 +207,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full"
+                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-black hover:text-sidebar-gray"
                 css={css`
                   list-style: none;
 

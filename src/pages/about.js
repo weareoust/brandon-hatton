@@ -45,7 +45,10 @@ export default function About(props) {
   return (
     <Layout expand>
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
-      <PageNav title="About" cta={{ text: "Contact", url: "/" }} />
+      <PageNav
+        title="About"
+        cta={{ text: "Invest", url: "https://thehatton.group/" }}
+      />
       <Hero>
         <div css={tw`flex flex-col justify-between`}>
           <Heading className="max-w-xl">{content.heroText}</Heading>
@@ -90,12 +93,12 @@ export default function About(props) {
         <SnglCol>
           <h2 className="text-3xl font-heading mb-12">{content.ctaTitle}</h2>
           <Link
-            className="mb-12 text-center font-body text-3xl font-light tracking-wide mx-auto p-2 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start"
+            className="px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray"
             to="/contact"
           >
             Contact
           </Link>
-          <div
+          {/* <div
             css={css`
               p {
                 margin-bottom: 1.2rem;
@@ -108,7 +111,7 @@ export default function About(props) {
             `}
           >
             {documentToReactComponents(content.subCta.json)}
-          </div>
+          </div> */}
         </SnglCol>
       </Section>
     </Layout>

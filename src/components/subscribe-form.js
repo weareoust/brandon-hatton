@@ -43,7 +43,7 @@ export default function SubscribeForm(props) {
   } else {
     return (
       <div css={tw`flex flex-col items-start`}>
-        <form
+        {/* <form
           name="downloadForm"
           method="post"
           action="/success"
@@ -82,7 +82,50 @@ export default function SubscribeForm(props) {
             onChange={handleChange}
           />
           <Btn css={tw`max-w-xs bg-black text-white text-sm p-2`}>Submit</Btn>
-        </form>
+        </form> */}
+        <div id="mc_embed_signup" className="w-full">
+          <form
+            action="https://brandonhatton.us4.list-manage.com/subscribe/post?u=6bca12b9ab3131a6451679c69&amp;id=f6ede05269"
+            method="post"
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            className="validate w-full"
+            // target="_blank"
+            novalidate
+          >
+            <div id="mc_embed_signup_scroll">
+              <input
+                type="email"
+                // value=""
+                name="EMAIL"
+                className="font-body border-0 p-2 mb-2 rounded-sm w-full"
+                id="mce-EMAIL"
+                placeholder="email address"
+                onChange={handleChange}
+                required
+              />
+              <div className="hidden" aria-hidden="true">
+                <input
+                  type="text"
+                  name="b_6bca12b9ab3131a6451679c69_f6ede05269"
+                  tabindex="-1"
+                  onChange={handleChange}
+                  value=""
+                />
+              </div>
+              <div className="clear">
+                <input
+                  type="submit"
+                  value="Subscribe"
+                  name="subscribe"
+                  id="mc-embedded-subscribe"
+                  onSubmit={handleSubmit}
+                  className="max-w-xs bg-black text-white text-sm p-2 font-heading uppercase"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

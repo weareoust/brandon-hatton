@@ -1,2 +1,3 @@
 /blog /beingenough
 /blog/* /beingenough/:splat
+/one-pager /one-pager.pdf

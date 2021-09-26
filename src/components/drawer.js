@@ -57,7 +57,7 @@ export default function Drawer(props) {
     <aside
       id="sidebar"
       css={css`
-        ${tw`bg-sidebar-gray absolute bottom-0 right-0 md:top-0 h-screen w-screen border-0 border-t-2 md:border-t-0 md:border-l-2 border-solid border-black`}
+        ${tw`absolute bottom-0 right-0 w-screen h-screen border-0 border-t-2 border-black border-solid bg-sidebar-gray md:top-0 md:border-t-0 md:border-l-2`}
         max-height: 93vh;
         transform: ${expand ? "0px" : navOffset}};
 
@@ -80,7 +80,7 @@ export default function Drawer(props) {
           css={css`
             display: ${expand ? "block" : "none"};
             color: #cecaca;
-            ${tw`uppercase font-body tracking-wide`}
+            ${tw`tracking-wide uppercase font-body`}
           `}
         >
           Close
@@ -93,8 +93,8 @@ export default function Drawer(props) {
           display: ${expand ? "none" : "block"};
         `}
       >
-        <div css={tw`flex flex-col justify-between md:h-screen max-h-full`}>
-          <ul css={tw`list-none m-0`}>
+        <div css={tw`flex flex-col justify-between max-h-full md:h-screen`}>
+          <ul css={tw`m-0 list-none`}>
             <li css={tw`mb-0`}>
               <NavItem to="/about" exit={openDrawer} entry={fadeIn}>
                 About
@@ -132,7 +132,7 @@ export default function Drawer(props) {
                 href={props.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                css={tw`p-2 m-4 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+                css={tw`self-start block p-2 m-4 uppercase border-2 border-black rounded-lg hover:bg-black hover:text-white`}
               >
                 linkedin
               </a>
@@ -142,9 +142,19 @@ export default function Drawer(props) {
                 href={props.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                css={tw`p-2 m-4 ml-0 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start`}
+                css={tw`self-start block p-2 m-4 ml-0 uppercase border-2 border-black rounded-lg hover:bg-black hover:text-white`}
               >
                 Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href={props.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                css={tw`self-start block p-2 m-4 ml-0 uppercase border-2 border-black rounded-lg hover:bg-black hover:text-white`}
+              >
+                Instagram
               </a>
             </li>
           </ul>

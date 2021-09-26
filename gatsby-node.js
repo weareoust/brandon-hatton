@@ -1,5 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const fs = require('fs')
+
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -15,13 +17,42 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
           }
         }
+        contentfulGlobalSettings(
+          id: { eq: "56f65675-48c1-5f91-ac9b-2d2706c70763" }
+        ) {
+          onePagerFile {
+            file {
+              url
+            }
+          }
+        }
       }
     `
   )
 
+  
+
   if (result.errors) {
     throw result.errors
   }
+  
+  fs.readFile('./static/_redirects', 'utf-8', function (err, data) {
+    console.log("err", err)
+    console.log("data", data)
+    if (data) {
+      fs.writeFile(
+        "./static/_redirects",
+        data.replace(
+          /.*one-pager.*/g,
+          "/one-pager https:" + result.data.contentfulGlobalSettings.onePagerFile.file.url
+        ),
+        "utf-8",
+        function(err) {
+          console.log(err)
+        }
+      )
+    }
+  })
 
   // Create blog posts pages.
   const posts = result.data.allContentfulPosts.nodes

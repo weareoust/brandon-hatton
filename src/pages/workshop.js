@@ -15,7 +15,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Bold = ({ children }) => <span className="bold">{children}</span>
 const Text = ({ children }) => (
-  <Body className="align-center mb-6">{children}</Body>
+  <Body className="mb-6 align-center">{children}</Body>
 )
 
 const options = {
@@ -28,7 +28,7 @@ const options = {
 }
 
 const Hero = styled(Section)`
-  ${tw`pt-24 flex flex-col md:flex-row justify-between px-4 md:px-8 pb-4`}
+  ${tw`flex flex-col justify-between px-4 pt-24 pb-4 md:flex-row md:px-8`}
   background: radial-gradient(circle at 70%, #F40B83 0%, #FA3305 15%, #E5E6E3 90%);
 `
 
@@ -47,18 +47,18 @@ export default function Workshops(props) {
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
         title="Workshop"
-        cta={{ text: "Invest", url: "https://thehatton.group/" }}
+        // cta={{ text: "Invest", url: "https://thehatton.group/" }}
       />
       <div
         css={css`
           ${tw`text-left`}
 
           h1 {
-            ${tw`font-heading mb-4 md:text-4xl text-2xl`}
+            ${tw`mb-4 text-2xl font-heading md:text-4xl`}
           }
 
           h2 {
-            ${tw`font-heading mb-4 md:text-3xl text-2xl`}
+            ${tw`mb-4 text-2xl font-heading md:text-3xl`}
           }
 
           p {
@@ -67,7 +67,7 @@ export default function Workshops(props) {
           }
 
           ul {
-            ${tw`list-disc pl-5`}
+            ${tw`pl-5 list-disc`}
           }
         `}
       >
@@ -76,7 +76,7 @@ export default function Workshops(props) {
             {documentToReactComponents(content.heroBody.json)}
           </div>
           <img
-            css={tw`w-1/2 md:w-auto self-end`}
+            css={tw`self-end w-1/2 md:w-auto`}
             src={burst}
             alt="Brandon Hatton Logo"
           />
@@ -88,11 +88,11 @@ export default function Workshops(props) {
           {/* <Heading as="h2" className="mb-2">
             {content.aboutTitle}
           </Heading> */}
-          {/* <h3 className="mb-8 font-bold text-2xl font-heading">
+          {/* <h3 className="mb-8 text-2xl font-bold font-heading">
             {content.aboutSubtitle}
           </h3> */}
           <div
-            className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col"
+            className="container flex flex-col max-w-screen-lg px-4 py-20 mx-auto"
             css={css`
               p {
                 margin-bottom: 1.2rem;
@@ -103,7 +103,7 @@ export default function Workshops(props) {
           </div>
         </Section>
         {/* <Section>
-        <div className="container px-4 py-20 max-w-screen-lg mx-auto">
+        <div className="container max-w-screen-lg px-4 py-20 mx-auto">
           <Heading as="h2" className="mb-8">
             {content.bioTitle}
           </Heading>
@@ -111,12 +111,12 @@ export default function Workshops(props) {
         </div>
       </Section> */}
         <Section css={tw`bg-white`}>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
-            <div className="text-left mb-4">
+          <div className="container flex flex-col items-center max-w-screen-lg px-4 py-20 mx-auto">
+            <div className="mb-4 text-left">
               {documentToReactComponents(content.subCta.json)}
             </div>
             <Link
-              className="px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray"
+              className="px-4 py-2 text-sm tracking-wide text-black uppercase border-2 border-black border-solid rounded-lg shadow-none font-body md:text-lg hover:bg-black hover:text-sidebar-gray"
               to="/contact"
             >
               {content.ctaTitle}

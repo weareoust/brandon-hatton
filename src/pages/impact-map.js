@@ -12,7 +12,7 @@ import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
 
 const Hero = styled(BackgroundImage)`
-  ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 bg-black text-white`}
+  ${tw`flex flex-col justify-between px-8 pt-24 text-white bg-black md:flex-row`}
   min-height: 60vh;
 `
 
@@ -25,7 +25,7 @@ const List = styled.ol`
 
 const Step = styled.li`
   counter-increment: my-awesome-counter;
-  ${tw`uppercase font-heading text-lg tracking-wide mb-24 pb-2 flex items-center relative`}
+  ${tw`relative flex items-center pb-2 mb-24 text-lg tracking-wide uppercase font-heading`}
 
   &:last-child {
     ${tw`mb-0`}
@@ -34,7 +34,7 @@ const Step = styled.li`
   &::after {
     content: "";
     height: 2px;
-    ${tw`block bg-black bottom-0 absolute w-screen`}
+    ${tw`absolute bottom-0 block w-screen bg-black`}
   }
 
   &:nth-of-type(2n-1)::after {
@@ -43,7 +43,7 @@ const Step = styled.li`
 
   &::before {
     content: counter(my-awesome-counter);
-    ${tw`font-display text-2xl mr-4 h-10 w-10 flex flex-none items-center justify-center border border-solid border-black rounded-full`}
+    ${tw`flex items-center justify-center flex-none w-10 h-10 mr-4 text-2xl border border-black border-solid rounded-full font-display`}
   }
 `
 
@@ -67,7 +67,7 @@ export default function ImpactMap(props) {
         title="Impact Map"
         logo={logo}
         // cta={{ text: "Download", url: "/impact-map#download" }}
-        cta={{ text: "Invest", url: "https://thehatton.group/" }}
+        // cta={{ text: "Invest", url: "https://thehatton.group/" }}
       />
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
@@ -97,10 +97,10 @@ export default function ImpactMap(props) {
         </Col>
       </Section>
       <Section id="download">
-        <TitleCol css={tw`md:bg-white border-b-0 hidden md:block`}>
+        <TitleCol css={tw`hidden border-b-0 md:bg-white md:block`}>
           <Heading as="h2">{content.colTitle}</Heading>
         </TitleCol>
-        <Col css={tw`bg-black text-white`}>
+        <Col css={tw`text-white bg-black`}>
           <DownloadForm title={content.formTitle} />
         </Col>
       </Section>

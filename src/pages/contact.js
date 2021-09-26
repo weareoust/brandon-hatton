@@ -30,7 +30,7 @@ const options = {
 }
 
 const Hero = styled(BackgroundImage)`
-  ${tw`pt-24 flex flex-col md:flex-row justify-between px-8 border-0 border-black border-solid border-b-2`}
+  ${tw`flex flex-col justify-between px-8 pt-24 border-0 border-b-2 border-black border-solid md:flex-row`}
   min-height: 70vh;
 `
 const BasicCta = tw.a`px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray`
@@ -59,7 +59,7 @@ export default function Contact(props) {
             as="a"
             href={content.heroCtaUrl}
             target="_blank"
-            css={tw`mb-8 self-start`}
+            css={tw`self-start mb-8`}
           >
             {content.heroCtaText}
           </BasicCta>
@@ -67,7 +67,7 @@ export default function Contact(props) {
       </Hero>
       <Section id="form">
         <TitleCol
-          css={tw`md:bg-white border-b-0 pb-12 flex flex-col items-center md:block`}
+          css={tw`flex flex-col items-center pb-12 border-b-0 md:bg-white md:block`}
         >
           <Heading as="h2" css={tw`mb-12`}>
             {content.colTitle}
@@ -81,19 +81,19 @@ export default function Contact(props) {
             {content.colButtonText}
           </BasicCta>
         </TitleCol>
-        <Col css={tw`bg-black text-white`}>
+        <Col css={tw`text-white bg-black`}>
           <ContactForm />
         </Col>
       </Section> */}
       <Section id="form" css={tw`border-b-0`}>
-        <div className="container px-4 py-20 mt-8 max-w-screen-lg mx-auto flex flex-col min-h-screen items-center justify-center">
-          <Heading css={tw`text-center mb-4`}>
+        <div className="container flex flex-col items-center justify-center max-w-screen-lg min-h-screen px-4 py-20 mx-auto mt-8">
+          <h1 css={tw`mb-4 text-2xl text-center font-heading`}>
             {content.heroText}
-          </Heading>
+          </h1>
           <ContactForm />
-          {/* <div className="text-center mt-4">
+          <div className="mt-12 text-center">
             {documentToReactComponents(content.postFormText.json, options)}
-          </div> */}
+          </div>
         </div>
       </Section>
     </Layout>

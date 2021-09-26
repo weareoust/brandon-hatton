@@ -43,7 +43,7 @@ export default function ContactForm(props) {
     } else {
       return (
         <div css={tw`flex flex-col items-center w-full`}>
-          {/* <Heading css={tw`text-center mb-10`}>Contact</Heading> */}
+          {/* <Heading css={tw`mb-10 text-center`}>Contact</Heading> */}
           <form
             name="contactForm"
             method="post"
@@ -94,9 +94,9 @@ export default function ContactForm(props) {
               onChange={handleChange}
             />
             <Btn
-              css={tw`px-4 py-2 font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none hover:bg-black hover:text-sidebar-gray mt-4`}
+              css={tw`px-4 py-2 mt-4 text-sm tracking-wide text-black uppercase border-2 border-black border-solid rounded-lg shadow-none font-body md:text-lg hover:bg-black hover:text-sidebar-gray`}
             >
-              Submit
+              Send Message
             </Btn>
           </form>
         </div>

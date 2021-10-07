@@ -58,7 +58,7 @@ export default function About(props) {
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
         title="About"
-        cta={{ text: "Invest", url: "https://thehatton.group/" }}
+        // cta={{ text: "Invest", url: "https://thehatton.group/" }}
       />
       <Hero>
         <div css={tw`flex flex-col justify-between`}>

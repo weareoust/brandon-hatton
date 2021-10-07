@@ -13,7 +13,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Bold = ({ children }) => <span className="bold">{children}</span>
 const Text = ({ children }) => (
-  <Body className="align-center mb-6">{children}</Body>
+  <Body className="mb-6 align-center">{children}</Body>
 )
 
 const options = {
@@ -60,29 +60,29 @@ export default function About(props) {
           }
 
           h1 {
-            ${tw`text-3xl mb-4`}
+            ${tw`mb-4 text-3xl`}
           }
           h2 {
-            ${tw`text-xl mb-8`}
+            ${tw`mb-8 text-xl`}
           }
 
           p {
-            ${tw`text-lg mb-4`}
+            ${tw`mb-4 text-lg`}
           }
         `}
       >
         <Section className="mt-20" css={tw`block px-4`}>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
+          <div className="container flex flex-col items-center max-w-screen-lg px-4 py-20 mx-auto">
             <div>
               <img
                 src={content.headshot.fluid.src}
                 alt="Brandon Hatton"
-                className="float-left max-w-md mw-10 w-full"
+                className="float-left w-full max-w-md mw-10"
               />
               {/* <Heading as="h2" className="mb-2">
                   {content.aboutTitle}
                 </Heading> */}
-              {/* <h3 className="mb-8 font-bold text-2xl font-heading">
+              {/* <h3 className="mb-8 text-2xl font-bold font-heading">
                   {content.aboutSubtitle}
                 </h3> */}
               <div
@@ -102,10 +102,10 @@ export default function About(props) {
               </div>
             </div>
             <details
-              className="font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none mt-8"
+              className="mt-8 text-sm tracking-wide text-black uppercase border-2 border-black border-solid rounded-lg shadow-none font-body md:text-lg"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-black hover:text-sidebar-gray`}
+                  ${tw`px-4 py-2 text-center border-b-2 hover:bg-black hover:text-sidebar-gray`}
                 }
 
                 li:last-child {
@@ -118,7 +118,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-black hover:text-sidebar-gray"
+                className="w-full px-4 py-2 text-center uppercase cursor-pointer font-body hover:bg-black hover:text-sidebar-gray"
                 css={css`
                   list-style: none;
 
@@ -148,13 +148,13 @@ export default function About(props) {
             ${tw`text-white`}
           `}
         >
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
+          <div className="container flex flex-col items-center max-w-screen-lg px-4 py-20 mx-auto">
             {documentToReactComponents(content.aboutBody2.json, options)}
             <details
-              className="font-body text-sm md:text-lg text-white tracking-wide uppercase border-2 border-white border-solid rounded-lg shadow-none mt-8"
+              className="mt-8 text-sm tracking-wide text-white uppercase border-2 border-white border-solid rounded-lg shadow-none font-body md:text-lg"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-white hover:text-black`}
+                  ${tw`px-4 py-2 text-center border-b-2 hover:bg-white hover:text-black`}
                 }
 
                 li:last-child {
@@ -167,7 +167,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-white hover:text-black"
+                className="w-full px-4 py-2 text-center uppercase cursor-pointer font-body hover:bg-white hover:text-black"
                 css={css`
                   list-style: none;
 
@@ -188,13 +188,13 @@ export default function About(props) {
           </div>
         </Section>
         <Section>
-          <div className="container px-4 py-20 max-w-screen-lg mx-auto flex flex-col items-center">
+          <div className="container flex flex-col max-w-screen-lg px-4 py-20 mx-auto">
             {documentToReactComponents(content.subCta.json, options)}
             <details
-              className="font-body text-sm md:text-lg text-black tracking-wide uppercase border-2 border-black border-solid rounded-lg shadow-none mt-8"
+              className="self-center mt-8 text-sm tracking-wide text-black uppercase border-2 border-black border-solid rounded-lg shadow-none font-body md:text-lg"
               css={css`
                 li {
-                  ${tw`py-2 px-4 border-b-2 text-center hover:bg-black hover:text-sidebar-gray`}
+                  ${tw`px-4 py-2 text-center border-b-2 hover:bg-black hover:text-sidebar-gray`}
                 }
 
                 li:last-child {
@@ -207,7 +207,7 @@ export default function About(props) {
               `}
             >
               <summary
-                className="cursor-pointer font-body px-4 py-2 text-center uppercase w-full hover:bg-black hover:text-sidebar-gray"
+                className="w-full px-4 py-2 text-center uppercase cursor-pointer font-body hover:bg-black hover:text-sidebar-gray"
                 css={css`
                   list-style: none;
 
@@ -229,9 +229,9 @@ export default function About(props) {
         </Section>
         {/* <Section css={tw`bg-white`}>
           <SnglCol>
-            <h2 className="text-3xl font-heading mb-12">{content.ctaTitle}</h2>
+            <h2 className="mb-12 text-3xl font-heading">{content.ctaTitle}</h2>
             <Link
-              className="mb-12 text-center font-body text-3xl font-light tracking-wide mx-auto p-2 border-2 border-black rounded-lg block uppercase hover:bg-black hover:text-white self-start"
+              className="self-start block p-2 mx-auto mb-12 text-3xl font-light tracking-wide text-center uppercase border-2 border-black rounded-lg font-body hover:bg-black hover:text-white"
               to="/contact"
             >
               Contact

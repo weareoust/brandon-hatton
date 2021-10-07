@@ -5,23 +5,30 @@ import PageNav from "../components/page-nav"
 import ContactForm from "../components/contact-form"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 import { Section, Col, TitleCol } from "../components/grid"
-import { Heading } from "../components/type"
+import { Heading, Body } from "../components/type"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
 
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
+
 const Bold = ({ children }) => <span className="bold">{children}</span>
+const Text = ({ children }) => (
+  <Body className="mb-6 align-center">{children}</Body>
+)
+
 const options = {
   renderMark: {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
   },
   renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
     [INLINES.HYPERLINK]: node => {
       return (
-        <a className="underline" href={node.data.uri} target="_blank" rel="noopener noreferrer">
+        <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
           {node.content[0].value}
         </a>
       )
@@ -91,7 +98,19 @@ export default function Contact(props) {
             {content.heroText}
           </h1>
           <ContactForm />
-          <div className="mt-12 text-center">
+          <div
+            css={css`
+              ${tw`flex flex-col items-center mt-12`}
+
+              p {
+                ${tw`block mb-4 text-xl`}
+              }
+
+              a {
+                ${tw`self-center block w-auto px-4 py-2 mx-auto text-sm tracking-wide text-black uppercase border-2 border-black border-solid rounded-lg shadow-none font-body md:text-lg hover:bg-black hover:text-sidebar-gray`}
+              }
+            `}
+          >
             {documentToReactComponents(content.postFormText.json, options)}
           </div>
         </div>

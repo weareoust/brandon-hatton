@@ -27,6 +27,12 @@ function SEO({ description, lang, meta, title, image }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  let formattedImage = image 
+
+  if (image && image.includes('https:') == false) {
+    formattedImage = image.replace(/\/\//, 'https://')
+  } 
+
   return (
     <Helmet
       htmlAttributes={{
@@ -53,7 +59,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: image ? image : "",
+          content: image ? formattedImage : "",
         },
         {
           name: `twitter:card`,

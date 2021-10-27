@@ -85,7 +85,7 @@ export default function Layout(props) {
             {data.page.tagline}
           </h1>
           {/* <p className="text-xl font-body">{data.page.shortText}</p> */}
-          <div class="border-b-2 border-black border-t-2 inline-block py-3">
+          <div class="border-b-2 border-black border-t-2 inline-block py-3 lg:ml-64">
             <h2 class="font-display uppercase text-2xl">What Is</h2>
             <h3 class="font-heading uppercase">Conscious Wealth?</h3>
             <ol class="list-decimal pl-5">

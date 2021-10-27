@@ -30,7 +30,7 @@ function SEO({ description, lang, meta, title, image }) {
   let formattedImage = image 
 
   if (image && image.includes('https:') == false) {
-    formattedImage = image.replace(/\/\//, 'http://')
+    formattedImage = image.replace(/\/\//, 'https://')
   } 
 
   return (
@@ -59,6 +59,10 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
+          content: image ? formattedImage : "",
+        },
+        {
+          property: `twitter:image`,
           content: image ? formattedImage : "",
         },
         {

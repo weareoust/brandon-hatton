@@ -7,6 +7,7 @@ import { css } from "@emotion/core"
 import { Section } from "../components/grid"
 import { Body } from "../components/type"
 import SEO from "../components/seo"
+import SubscribeForm from "../components/subscribe-form"
 
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -227,31 +228,19 @@ export default function About(props) {
             </details>
           </div>
         </Section>
-        {/* <Section css={tw`bg-white`}>
-          <SnglCol>
-            <h2 className="mb-12 text-3xl font-heading">{content.ctaTitle}</h2>
-            <Link
-              className="self-start block p-2 mx-auto mb-12 text-3xl font-light tracking-wide text-center uppercase border-2 border-black rounded-lg font-body hover:bg-black hover:text-white"
-              to="/contact"
-            >
-              Contact
-            </Link>
-            <div
-              css={css`
-                p {
-                  margin-bottom: 1.2rem;
-                  ${tw`text-xl`}
-                }
+        <Section css={tw`bg-white`}>
+          <div css={css`
+              ${tw`flex flex-col max-w-screen-lg px-4 py-20 mx-auto text-center`}
+              max-width: 300px;
 
-                a {
-                  text-decoration: underline;
-                }
-              `}
-            >
-              {documentToReactComponents(content.subCta.json)}
-            </div>
-          </SnglCol>
-        </Section> */}
+              input {
+                ${tw`mb-8 border-black border-2 rounded-md`}
+              }
+            `}>
+            <h2>Preview the Book</h2>
+            <SubscribeForm/>
+          </div>
+        </Section>
       </div>
     </Layout>
   )

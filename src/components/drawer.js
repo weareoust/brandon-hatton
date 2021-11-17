@@ -120,11 +120,11 @@ export default function Drawer(props) {
                 Contact
               </NavItem>
             </li>
-            {/* <li css={tw`mb-0`}>
+            <li css={tw`mb-0`}>
               <NavItem to="/beingenough" exit={openDrawer} entry={fadeIn}>
-                BEING ENOUGH: A PODCAST
+                BEING ENOUGH
               </NavItem>
-            </li> */}
+            </li>
           </ul>
           <ul className="flex">
             <li>

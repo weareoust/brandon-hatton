@@ -39,14 +39,14 @@ export default function ImpactMap(props) {
       <Hero fluid={props.data.file.childImageSharp.fluid}>
         <div css={tw`flex flex-col justify-between`}>
           <Heading css={tw`max-w-xl`}>{content.heroText}</Heading>
-          <BasicCta
+          {/*}<BasicCta
             as="a"
             href={content.heroCtaUrl}
             target="_blank"
             css={tw`mb-8 self-start`}
           >
             {content.heroCtaText}
-          </BasicCta>
+          </BasicCta> */}
         </div>
       </Hero>
       {props.data.allContentfulPosts.nodes.map((blog, i) => {

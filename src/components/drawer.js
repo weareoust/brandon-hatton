@@ -116,13 +116,13 @@ export default function Drawer(props) {
               </NavItem>
             </li>
             <li css={tw`mb-0`}>
-              <NavItem to="/contact" exit={openDrawer} entry={fadeIn}>
-                Contact
+              <NavItem to="/beingenough" exit={openDrawer} entry={fadeIn}>
+                BEING ENOUGH BLOG
               </NavItem>
             </li>
             <li css={tw`mb-0`}>
-              <NavItem to="/beingenough" exit={openDrawer} entry={fadeIn}>
-                BEING ENOUGH
+              <NavItem to="/contact" exit={openDrawer} entry={fadeIn}>
+                Contact
               </NavItem>
             </li>
           </ul>

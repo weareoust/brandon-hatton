@@ -238,7 +238,7 @@ export default function About(props) {
               }
             `}>
             <h2>Preview the Book</h2>
-            <SubscribeForm/>
+            <SubscribeForm bookPreview={true}/>
           </div>
         </Section>
       </div>

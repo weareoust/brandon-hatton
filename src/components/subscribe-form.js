@@ -104,8 +104,9 @@ export default function SubscribeForm(props) {
                 onChange={handleChange}
                 required
               />
-              { props.bookPreview &&
-                <label className="checkbox hidden" for="group_2"><input type="checkbox" checked id="group_2" name="group[68553][2]" value="1" className="av-checkbox"/><span>Book Preview</span> </label>
+              { props.bookPreview ?
+                <label className="checkbox hidden" for="group_2"><input type="checkbox" checked id="group_2" name="group[68553][2]" value="1" className="av-checkbox"/><span>Book Preview</span> </label> : 
+                <label className="checkbox hidden" for="group_4"><input type="checkbox" checked id="group_4" name="group[68553][4]" value="1" className="av-checkbox"/><span>Main Website Signup</span> </label>
               }
               <div className="hidden" aria-hidden="true">
                 <input

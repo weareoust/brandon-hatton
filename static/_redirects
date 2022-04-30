@@ -1,3 +1,4 @@
 /blog /beingenough
 /blog/* /beingenough/:splat
-/one-pager https://assets.ctfassets.net/7ctqz0gj8yb4/6PAcI0mXwKWbf21SzAtioG/bf2180c8db88991eb27921043608998f/Brandon-One-Pagers-final.pdf
+/one-pager https://assets.ctfassets.net/7ctqz0gj8yb4/6PAcI0mXwKWbf21SzAtioG/bdc5c1c66a0a49f3a0d4f88470fc941c/Brandon-One-Pager-2.pdf
+/workshop /course

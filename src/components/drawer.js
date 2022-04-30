@@ -106,8 +106,8 @@ export default function Drawer(props) {
               </NavItem>
             </li>
             <li css={tw`mb-0`}>
-              <NavItem to="/workshop" exit={openDrawer} entry={fadeIn}>
-                Workshop
+              <NavItem to="/course" exit={openDrawer} entry={fadeIn}>
+                Course
               </NavItem>
             </li>
             <li css={tw`mb-0`}>

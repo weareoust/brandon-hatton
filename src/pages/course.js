@@ -46,7 +46,7 @@ export default function Workshops(props) {
     <Layout expand>
       {content.seoMetaData ? <SEO {...metaData} /> : ""}
       <PageNav
-        title="Workshop"
+        title="Course"
         // cta={{ text: "Invest", url: "https://thehatton.group/" }}
       />
       <div

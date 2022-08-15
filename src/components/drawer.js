@@ -9,11 +9,6 @@ const NavItem = tw(TransitionLink)`
   border-black border-solid border-0 border-b-2 mb-0
   hover:bg-orange hover:text-white
 `
-const NavLink = tw.a`
-  font-heading px-8 py-2 uppercase block text-black
-  border-black border-solid border-0 border-b-2 mb-0
-  hover:bg-orange hover:text-white
-`
 
 const openDrawer = {
   trigger: () => {
@@ -101,12 +96,9 @@ export default function Drawer(props) {
         <div css={tw`flex flex-col justify-between max-h-full md:h-screen`}>
           <ul css={tw`m-0 list-none`}>
             <li css={tw`mb-0`}>
-              <NavLink
-                href="https://hattoninvestments.com/"
-                target="_blank"
-              >
+              <NavItem to="/about" exit={openDrawer} entry={fadeIn}>
                 About
-              </NavLink>
+              </NavItem>
             </li>
             <li css={tw`mb-0`}>
               <NavItem to="/book" exit={openDrawer} entry={fadeIn}>
@@ -129,12 +121,9 @@ export default function Drawer(props) {
               </NavItem>
             </li>
             <li css={tw`mb-0`}>
-              <NavLink 
-                href="https://hattoninvestments.com/"
-                target="_blank"
-              >
+              <NavItem to="/contact" exit={openDrawer} entry={fadeIn}>
                 Contact
-              </NavLink>
+              </NavItem>
             </li>
           </ul>
           <ul className="flex">
